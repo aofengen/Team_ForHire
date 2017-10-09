@@ -24,7 +24,6 @@ import { AdetailComponent } from './adetail/adetail.component';
     HeaderComponent,
     SdetailComponent,
     AdetailComponent,
-
   ],
   imports: [
     BrowserModule

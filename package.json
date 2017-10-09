@@ -1,6 +1,7 @@
 {
   "name": "queue-application",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "authors": "Aaron Ofengender, Devon Brosch, Kaylea Britton",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
