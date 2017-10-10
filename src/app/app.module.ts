@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -11,6 +12,8 @@ import { HistoryComponent } from './history/history.component';
 import { HeaderComponent } from './header/header.component';
 import { SdetailComponent } from './sdetail/sdetail.component';
 import { AdetailComponent } from './adetail/adetail.component';
+import { SignupModalComponent } from './signup-modal/signup-modal.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,18 @@ import { AdetailComponent } from './adetail/adetail.component';
     HeaderComponent,
     SdetailComponent,
     AdetailComponent,
+    SignupModalComponent,
+    LoginModalComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule.forRoot()
   ],
   providers: [],
+  entryComponents: [
+    SignupModalComponent,
+    LoginModalComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

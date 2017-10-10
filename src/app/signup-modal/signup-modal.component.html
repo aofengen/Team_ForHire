@@ -1,0 +1,22 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<button class="close" type="button" (click)="activeModal.close('Close click')" aria-label="Close">
+		<span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">Sign Up</h4>
+	</div>
+	<div class="modal-body">
+		<div class="alert alert-danger" role="alert" style="display:none;" id="su_error"></div>
+		<label for="su_email">Email:</label>
+		<input type="text" id="su_email" />
+		<br>
+		<label for="su_username">Username:</label>
+		<input type="text" id="su_username" />
+		<br>
+		<label for="su_password">Password:</label>
+		<input type="password" id="su_password" />
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
+		<button id="signup" type="button" class="btn btn-primary">Signup</button>
+	</div>
+</div>
