@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { ShomeComponent } from './shome/shome.component';
+import { SHomeComponent } from './shome/shome.component';
 import { AhomeComponent } from './ahome/ahome.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { UpdateTicketComponent } from './update-ticket/update-ticket.component';
@@ -29,7 +29,7 @@ import { routes } from './router.module';
   declarations: [
     AppComponent,
     LandingPageComponent,
-    ShomeComponent,
+    SHomeComponent,
     AhomeComponent,
     CreateTicketComponent,
     UpdateTicketComponent,
