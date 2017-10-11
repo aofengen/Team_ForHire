@@ -18,6 +18,8 @@ import { AupdateComponent } from './aupdate/aupdate.component';
 import { routes } from './router.module';
 import { SupdateComponent } from './supdate/supdate.component';
 
+import { AuthService } from './services/auth.service';
+
 
 
 @NgModule({
@@ -41,7 +43,7 @@ import { SupdateComponent } from './supdate/supdate.component';
     AupdateComponent,
     SupdateComponent
   ],
-  providers: [],
+  providers: [AuthService],
   entryComponents: [
     SignupModalComponent,
     LoginModalComponent

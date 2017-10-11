@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -12,23 +12,13 @@ export class LoginModalComponent implements OnInit {
 
 	token: string;
 
-  constructor(public activeModal: NgbActiveModal, private router: Router) {}
+  constructor(public activeModal: NgbActiveModal, private authService: AuthService) {}
 
   ngOnInit() {
   }
 
   onLogin(email: string, password: string) {
-  	firebase.auth().signInWithEmailAndPassword(email, password)
-  	.then(
-  		response => {	
-  			firebase.auth().currentUser.getIdToken()
-  			.then(
-  				(token: string) => this.token = token
-  			)
-  		})
-  	.catch(error => console.log(error))
-	  this.activeModal.close('Close click');
-	  this.router.navigate(['/home']);
+  	this.authService.loginUser(email, password);
 	}
 
 }
