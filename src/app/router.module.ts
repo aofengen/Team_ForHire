@@ -7,6 +7,7 @@ import { SHomeComponent } from './shome/shome.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { SdetailComponent } from './sdetail/sdetail.component';
 import { AhomeComponent } from './ahome/ahome.component';
+import { AdetailComponent } from './adetail/adetail.component';
 
 export const routes = [
     { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -14,6 +15,7 @@ export const routes = [
     { path: 'history', component: HistoryComponent },
     { path: 'home', component: SHomeComponent },
     { path: 'admin/home', component: AhomeComponent },
+    { path: 'admin/update', component: AdetailComponent },
     { path: 'create', component: CreateTicketComponent },
     { path: 'update', component: SdetailComponent }
  ];

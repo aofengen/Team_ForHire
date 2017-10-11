@@ -7,17 +7,17 @@
 	<div class="modal-body">
 		<div class="form-group">
 			<label>Name:</label>
-			<input type="text" name="name" class="form-control" ngModel />
+			<input type="text" #name class="form-control" />
 			<label>Email:</label>
-			<input type="text" name="email" class="form-control" ngModel />
+			<input type="text" #email class="form-control" />
 			<label>Username:</label>
-			<input type="text" name="username" class="form-control" ngModel />
+			<input type="text" #username class="form-control" />
 			<label>Password:</label>
-			<input type="password" name="password" class="form-control" ngModel />
+			<input type="password" #password class="form-control" ngModel />
 		</div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
-		<button type="button" class="btn btn-primary">Signup</button>
+		<button type="button" class="btn btn-primary" (click)="onSignup(name.value, email.value, username.value, password.value)">Signup</button>
 	</div>
 </div>
