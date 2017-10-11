@@ -5,18 +5,19 @@
 		<h4 class="modal-title">Sign Up</h4>
 	</div>
 	<div class="modal-body">
-		<div class="alert alert-danger" role="alert" style="display:none;" id="su_error"></div>
-		<label for="su_email">Email:</label>
-		<input type="text" id="su_email" />
-		<br>
-		<label for="su_username">Username:</label>
-		<input type="text" id="su_username" />
-		<br>
-		<label for="su_password">Password:</label>
-		<input type="password" id="su_password" />
+		<div class="form-group">
+			<label>Name:</label>
+			<input type="text" name="name" class="form-control" ngModel />
+			<label>Email:</label>
+			<input type="text" name="email" class="form-control" ngModel />
+			<label>Username:</label>
+			<input type="text" name="username" class="form-control" ngModel />
+			<label>Password:</label>
+			<input type="password" name="password" class="form-control" ngModel />
+		</div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
-		<button id="signup" type="button" class="btn btn-primary">Signup</button>
+		<button type="button" class="btn btn-primary">Signup</button>
 	</div>
 </div>
