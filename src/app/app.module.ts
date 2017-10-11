@@ -9,7 +9,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SHomeComponent } from './shome/shome.component';
 import { AhomeComponent } from './ahome/ahome.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
-import { UpdateTicketComponent } from './update-ticket/update-ticket.component';
 import { HistoryComponent } from './history/history.component';
 import { SdetailComponent } from './sdetail/sdetail.component';
 import { AdetailComponent } from './adetail/adetail.component';
@@ -32,7 +31,6 @@ import { routes } from './router.module';
     SHomeComponent,
     AhomeComponent,
     CreateTicketComponent,
-    UpdateTicketComponent,
     HistoryComponent,
     SdetailComponent,
     AdetailComponent,
