@@ -1,3 +1,9 @@
+.container {
+    clear: both;
+    margin-top: 100px;
+}
 .sIssue {
 	border: solid 2px black;
+    margin: 10px;
+    width: 75%
 }
