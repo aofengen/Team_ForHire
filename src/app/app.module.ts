@@ -16,6 +16,7 @@ import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
 import { routes } from './router.module';
+import { SupdateComponent } from './supdate/supdate.component';
 
 
 
@@ -37,7 +38,8 @@ import { routes } from './router.module';
     AdetailComponent,
     SignupModalComponent,
     LoginModalComponent,
-    AupdateComponent
+    AupdateComponent,
+    SupdateComponent
   ],
   providers: [],
   entryComponents: [
