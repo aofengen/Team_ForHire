@@ -1,8 +1,12 @@
+::backdrop {
+	background-color: #817FB2;
+}	
+.container {
+	margin: 0;
+}
 #landingPage {
+	width: 100vw;
+	height: 100vh;
 	text-align: center;
 	margin: 15em;
-}
-
-h4 {
-	text-align: left;
 }
