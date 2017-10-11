@@ -10,12 +10,13 @@ import * as firebase from 'firebase';
 })
 export class SignupModalComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal, private authService: AuthService) {}
+  constructor(private authService: AuthService, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
   }
 
   onSignup(name: string, email: string, username: string, password: string) {
   	this.authService.newUser(name, email, username, password);
+  	this.activeModal.close('Close click');
   }
 }

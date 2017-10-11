@@ -12,13 +12,13 @@ export class LoginModalComponent implements OnInit {
 
 	token: string;
 
-  constructor(public activeModal: NgbActiveModal, private authService: AuthService) {}
+  constructor(private authService: AuthService, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
   }
 
   onLogin(email: string, password: string) {
   	this.authService.loginUser(email, password);
+  	this.activeModal.close('Close click');
 	}
-
 }

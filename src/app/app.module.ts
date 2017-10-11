@@ -15,12 +15,12 @@ import { AdetailComponent } from './adetail/adetail.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
-import { routes } from './router.module';
+
 import { SupdateComponent } from './supdate/supdate.component';
 
 import { AuthService } from './services/auth.service';
-
-
+import { routes } from './router.module';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -43,7 +43,10 @@ import { AuthService } from './services/auth.service';
     AupdateComponent,
     SupdateComponent
   ],
-  providers: [AuthService],
+  providers: [
+  AuthService,
+  NgbActiveModal
+  ],
   entryComponents: [
     SignupModalComponent,
     LoginModalComponent

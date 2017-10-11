@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable()
 
@@ -34,7 +34,6 @@ export class AuthService {
 	    username: username,
 	    isAdmin: false
 	  })
-	  this.activeModal.close('Close click');
 	  this.router.navigate(['/home']);
 	}
 
@@ -48,7 +47,6 @@ export class AuthService {
   			)
   		})
   	.catch(error => console.log(error))
-	  this.activeModal.close('Close click');
 	  this.router.navigate(['/home']);
 	}
 
