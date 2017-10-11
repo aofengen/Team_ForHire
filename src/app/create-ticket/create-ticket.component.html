@@ -1,3 +1,35 @@
-<p>
-  create-ticket works!
-</p>
+<div class="container">
+	<h1>Create Support Request</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3">
+			<label>Name:</label>
+			<input type="text" id="studentName" ngModel class="form-control" placeholder="Name" />
+		</div>
+		<div class="col-sm-4">
+			<label>Location:</label>
+			<input type="text" id="location" ngModel class="form-control" placeholder="Location" />
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3">
+			<label>Type of Issue:</label>
+			<select class="form-control" id="create-issueList"></select>
+		</div>
+		<div class="col-sm-4">
+			<br>
+			<p>If other, please provide more information along with the description</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<label>What is the problem?</label>
+			<textarea class="form-control" id="issueDesc" rows="5"></textarea>
+		</div>
+	</div>
+</div>
