@@ -1,6 +1,11 @@
 .container {
     clear: both;
+    /*background-color: #f8f8f8;*/
+    margin-top: 100px;
+    /*background-size: cover;*/
 }
 .sIssue {
     border: 2px solid #333;
+    margin: 10px;
+    width: 75%
 }
