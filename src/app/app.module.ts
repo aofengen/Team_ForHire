@@ -14,8 +14,9 @@ import { SdetailComponent } from './sdetail/sdetail.component';
 import { AdetailComponent } from './adetail/adetail.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
-
+import { AupdateComponent } from './aupdate/aupdate.component';
 import { routes } from './router.module';
+
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { routes } from './router.module';
     SdetailComponent,
     AdetailComponent,
     SignupModalComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    AupdateComponent
   ],
   providers: [],
   entryComponents: [
