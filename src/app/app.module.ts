@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './shared/opentickets.service';
 import { AuthGuard } from './services/auth-guard.service';
 //import { AdminGuard } from './services/admin-guard.service';
+import { CreateTicketService } from './services/create-ticket.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,6 +29,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
@@ -50,6 +52,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     AuthService,
     AuthGuard,
     //AdminGuard,
+    CreateTicketService,
     NgbActiveModal
   ],
   entryComponents: [
