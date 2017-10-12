@@ -19,6 +19,7 @@ import { AupdateComponent } from './aupdate/aupdate.component';
 import { SupdateComponent } from './supdate/supdate.component';
 
 import { AuthService } from './services/auth.service';
+import { OpenTicketService } from './shared/opentickets.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -45,7 +46,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
   AuthService,
-  NgbActiveModal
+  NgbActiveModal,
+  OpenTicketService
   ],
   entryComponents: [
     SignupModalComponent,
