@@ -48,7 +48,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SupdateComponent
   ],
   providers: [
-  OpenTicketService
+    OpenTicketService,
     AuthService,
     AuthGuard,
     //AdminGuard,
