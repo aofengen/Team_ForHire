@@ -44,7 +44,8 @@ export class AuthService {
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
-  			)
+			  )
+			  console.log(this.token)
   		})
   	.catch(error => console.log(error))
 	}
