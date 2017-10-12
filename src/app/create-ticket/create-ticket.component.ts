@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { Router } from '@angular/router';
 
@@ -24,7 +24,6 @@ export class CreateTicketComponent implements OnInit {
   	const issueSolved = false;
   	const suggestedSoultion = null;
   	const time = Date();
-  	console.log(name, desc, location, category);
   	this.createTicketService.createTicket(name, desc, location, category, instructor, issueSolved, suggestedSoultion, time);
   	this.router.navigate(['/home']);
   }
