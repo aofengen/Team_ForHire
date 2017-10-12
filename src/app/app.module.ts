@@ -15,10 +15,11 @@ import { AdetailComponent } from './adetail/adetail.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
-
 import { SupdateComponent } from './supdate/supdate.component';
 
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+//import { AdminGuard } from './services/admin-guard.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -44,8 +45,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SupdateComponent
   ],
   providers: [
-  AuthService,
-  NgbActiveModal
+    AuthService,
+    AuthGuard,
+    //AdminGuard,
+    NgbActiveModal
   ],
   entryComponents: [
     SignupModalComponent,
