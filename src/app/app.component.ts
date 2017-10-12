@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import * as firebase from 'firebase';
+import {NgsRevealConfig} from 'ng-scrollreveal';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',

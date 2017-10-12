@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {NgsRevealModule} from 'ng-scrollreveal';
+import {NgsRevealConfig} from 'ng-scrollreveal';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -31,7 +33,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgsRevealModule.forRoot()
   ],
   declarations: [
     AppComponent,
