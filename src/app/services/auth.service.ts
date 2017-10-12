@@ -7,7 +7,6 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AuthService {
 	token: string;
-	userID: string;
 
 	constructor(public activeModal: NgbActiveModal, private router: Router) {}
 
@@ -19,6 +18,7 @@ export class AuthService {
   	})
   	.then(
   		response => {	
+  			this.router.navigate(['/home']);
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
@@ -34,20 +34,19 @@ export class AuthService {
 	    username: username,
 	    isAdmin: false
 	  })
-	  this.router.navigate(['/home']);
 	}
 
 	loginUser(email:string, password: string) {
 		firebase.auth().signInWithEmailAndPassword(email, password)
   	.then(
   		response => {	
+  			this.router.navigate(['/home']);
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
   			)
   		})
   	.catch(error => console.log(error))
-	  this.router.navigate(['/home']);
 	}
 
 	logout() {
@@ -69,13 +68,9 @@ export class AuthService {
 	promoteAdmin() {
 		userID.set({isAdmin: true});
 	}
-
+	
 	isAdmin() {
-		
-		if (userID.isAdmin === true) {
-			this.router.navigate(['/admin/home']);
-		}	else {
-			this.router.navigate(['/home']);
-		}
-		}*/
+		let userID = firebase.auth().currentUser.uid;
+		return firebase.database.ref('users/' + userID + "/isAdmin") != false;
+	}*/
 }
