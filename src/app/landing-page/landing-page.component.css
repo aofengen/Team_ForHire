@@ -4,6 +4,10 @@
     margin-top: 100px;
 	text-align: center;
 }
+.btn-primary {
+	background-color: #0B083B !important;
+	border: 1px solid #0B083B !important;
+}
 .buttons {
 	text-align: center;
 	margin: auto;
