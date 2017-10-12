@@ -1,0 +1,18 @@
+.container {
+    clear: both;
+	margin: auto;
+    margin-top: 100px;
+	text-align: center;
+}
+.buttons {
+	text-align: center;
+	margin: auto;
+}
+.in {
+	padding: 5px;
+	width: 75px;
+}
+.up {
+	padding: 5px;
+	width: 75px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -7,7 +8,9 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = 'HELP!!!';
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
   	firebase.initializeApp({
@@ -15,5 +18,9 @@ export class AppComponent implements OnInit {
 	    authDomain: "help-me-queue.firebaseapp.com",
 	    databaseURL: "https://help-me-queue.firebaseio.com"
   	});
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
