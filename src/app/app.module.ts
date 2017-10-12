@@ -18,6 +18,7 @@ import { AupdateComponent } from './aupdate/aupdate.component';
 import { SupdateComponent } from './supdate/supdate.component';
 
 import { AuthService } from './services/auth.service';
+import { OpenTicketService } from './shared/opentickets.service';
 import { AuthGuard } from './services/auth-guard.service';
 //import { AdminGuard } from './services/admin-guard.service';
 import { routes } from './router.module';
@@ -45,6 +46,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SupdateComponent
   ],
   providers: [
+  OpenTicketService
     AuthService,
     AuthGuard,
     //AdminGuard,
