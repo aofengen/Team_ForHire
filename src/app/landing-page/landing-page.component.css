@@ -1,12 +1,18 @@
-::backdrop {
-	background-color: #817FB2;
-}	
 .container {
-	margin: 0;
-}
-#landingPage {
-	width: 100vw;
-	height: 100vh;
+    clear: both;
+	margin: auto;
+    margin-top: 100px;
 	text-align: center;
-	margin: 15em;
+}
+.buttons {
+	text-align: center;
+	margin: auto;
+}
+.in {
+	padding: 5px;
+	width: 75px;
+}
+.up {
+	padding: 5px;
+	width: 75px;
 }
