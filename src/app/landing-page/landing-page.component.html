@@ -18,4 +18,16 @@
 			<button class="btn btn-primary up" (click)="login()">Help me!</button>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-12 smallSpace">Scroll down to see our video</div>
+		<div class="col-sm-12 space"></div>
+		<div class="col-sm-12 space"></div>
+			<div class="col-sm-12 videoHolder">
+					<div class="video" [ngsReveal]="{ reset:true}">
+							<iframe src="https://www.youtube.com/embed/v-eLrAw-gGc" frameborder="0" align="center" allowfullscreen></iframe>
+					</div>
+					<div class="col-sm-12 smallSpace"></div>
+			</div>
+		 
+	</div>	
 </div>

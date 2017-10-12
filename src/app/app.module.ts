@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {NgsRevealModule} from 'ng-scrollreveal';
+import {NgsRevealConfig} from 'ng-scrollreveal';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -29,7 +31,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgsRevealModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -46,7 +49,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SupdateComponent
   ],
   providers: [
-  OpenTicketService
+    OpenTicketService,
     AuthService,
     AuthGuard,
     //AdminGuard,
