@@ -1,4 +1,5 @@
 import { OpenTickets } from './opentickets.model';
+import * as firebase from 'firebase';
 import { EventEmitter } from '@angular/core';
 
 export class OpenTicketService {
@@ -8,17 +9,27 @@ export class OpenTicketService {
 	new OpenTickets('Aaron Ofengender', 'test2', false, 'angular 5', 'Paul', 'Cali', '8:00am')
 	];
 
+	constructor() { }
+
 	getOpenTickets() {
-		return this.tickets.slice();
-	}
-
-	addOpenTicket(ticket: OpenTickets) {
-		this.tickets.push(ticket);
-		this.openTicketsChanged.emit(this.tickets.slice());
-	}
-
-	addOpenTickets(tickets: OpenTickets[]) {
-		this.tickets.push(...tickets);
-		this.openTicketsChanged.emit(this.tickets.slice());
+		let database = firebase.database();
+		let openIssuesRef = database.ref('openIssues').orderByKey();
+		openIssuesRef.once('value').then(function(snapshot) {
+	    	snapshot.forEach(function(childSnapshot) {
+	    	let key = childSnapshot.key;
+	      	let childData = childSnapshot.val();
+	      	let openTickets = {
+				name: childData.name,
+				description: childData.desc,
+				issueSolved: childData.issueSolved,
+				category: childData.category,
+				instructor: childData.instructor,
+				location: childData.location,
+				time: childData.time
+			}
+			this.tickets.push(openTickets)
+	    	});
+		});	
+		return this.tickets	
 	}
 }
