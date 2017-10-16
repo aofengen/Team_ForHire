@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './services/auth.service';
 import * as firebase from 'firebase';
-import {NgsRevealConfig} from 'ng-scrollreveal';
-import { NgIf } from '@angular/common';
+import { NgsRevealConfig } from 'ng-scrollreveal';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +8,11 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'HELP!!!';
 
-  constructor(private authService: AuthService) {}
+  title = 'HELP!!!';
+  token = true;
+
+  constructor() {}
 
   ngOnInit() {
   	firebase.initializeApp({
@@ -22,7 +22,5 @@ export class AppComponent implements OnInit {
   	});
   }
 
-  logout() {
-    this.authService.logout();
-  }
+
 }

@@ -69,9 +69,11 @@ export class AuthService {
 	promoteAdmin() {
 		userID.set({isAdmin: true});
 	}
-	
+		
 	isAdmin() {
 		let userID = firebase.auth().currentUser.uid;
-		return firebase.database.ref('users/' + userID + "/isAdmin") != false;
-	}*/
+		let admin = firebase.database().ref('users/' + userID); 
+		console.log(admin.isAdmin);
+	}
+	*/
 }
