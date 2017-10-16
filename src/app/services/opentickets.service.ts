@@ -1,4 +1,4 @@
-import { OpenTickets } from './opentickets.model';
+import { OpenTickets } from '../shared/opentickets.model';
 import * as firebase from 'firebase';
 import { EventEmitter } from '@angular/core';
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { OpenTickets } from '../shared/opentickets.model';
-import { OpenTicketService } from '../shared/opentickets.service'
+import { OpenTicketService } from '../services/opentickets.service'
 
 @Component({
   selector: 'app-supdate',
