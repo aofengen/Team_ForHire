@@ -12,7 +12,7 @@ import { OpenTicketService } from '../services/opentickets.service'
 export class SupdateComponent implements OnInit {
 	ticket: OpenTickets;
 	id: number;
-	studentName: string;
+	studentName: string = "HI";
 	desc: string;
 	location: string;
 	category: string;
@@ -31,15 +31,15 @@ export class SupdateComponent implements OnInit {
  		this.route.params
       .subscribe(
           (params: Params) => {
-              this.id = +params['id'];
-              this.ticket = this.ticketService.getOpenTicket(this.id);
-          })
-      let openTicket = [this.ticket];
-    this.showDetails(openTicket);
+			  this.id = +params['id'];
+			  this.ticket = this.ticketService.getOpenTicket(this.id);
+			  this.showDetails(this.ticket);
+			  this.studentName = this.ticket.studentName;
+		  }) 
 	}
 
   showDetails(data) {
-	  this.studentName = data.studentName;
+	 
 	  this.desc = data.desc;
 	  this.location = data.location;
 	  this.category = data.category;
