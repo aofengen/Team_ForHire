@@ -18,7 +18,7 @@ export class AuthService {
   	})
   	.then(
   		response => {	
-  			this.router.navigate(['/home']);
+  			this.router.navigate(['/ticket']);
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
@@ -40,7 +40,7 @@ export class AuthService {
 		firebase.auth().signInWithEmailAndPassword(email, password)
   	.then(
   		response => {	
-  			this.router.navigate(['/home']);
+  			this.router.navigate(['/ticket']);
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token

@@ -1,6 +1,6 @@
 export class OpenTickets {
 	constructor(
-		public name: string, 
+		public studentName: string, 
 		public description: string,
 		public issueSolved: boolean,
 		public category: string,

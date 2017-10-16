@@ -21,6 +21,7 @@ import { SupdateComponent } from './supdate/supdate.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminheaderComponent } from './adminheader/adminheader.component';
 import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
+import { SupdateItemComponent } from './supdate-item/supdate-item.component';
 
 import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './shared/opentickets.service';
@@ -54,7 +55,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SupdateComponent,
     HeaderComponent,
     AdminheaderComponent,
-    AdminhistoryComponent
+    AdminhistoryComponent,
+    SupdateItemComponent
   ],
   providers: [
     OpenTicketService,

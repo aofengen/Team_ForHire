@@ -1,5 +1,61 @@
 <app-header></app-header>
-<div class="container" style="margin: 20%;">
+
+<div class="container">
+	<div class="row">
+		<br>
+		<br>
+		<div class="col-sm-11">
+			<h2>Update Ticket</h2>
+		</div>
+		<br>
+	</div>
+	<form (ngSubmit)="createTicket(f)" #f="ngForm">
+	  <div class="form-row">
+			<div class="form-group col-md-4">
+			  <label for="inputName" class="col-form-label">Name</label>
+			  <textarea type="text" class="form-control" id="studentName" name="studentName" rows="1" ngModel>{{name}}</textarea>
+			</div>
+	  </div>
+	  <div class="form-group">
+			<label for="descriptionTextArea">Description</label>
+			<textarea class="form-control" id="desc" name="desc" rows="6" ngModel>{{desc}}</textarea>
+		</div>
+	  <div class="form-row">
+			<div class="form-group col-md-4">
+			  <label for="inputLocation" class="col-form-label">Location</label>
+			  <textarea type="text" id="location" name="location" ngModel class="form-control" rows="1" >{{location}}</textarea>
+			</div>
+			<div class="form-group col-md-4">
+			  <label for="inputCategory" class="col-form-label">Category</label>
+			  <!-- <select #category class="form-control" NgModel></select> -->
+			  <textarea type="text" id="category" name="category" ngModel class="form-control" rows="1" disabled>{{category}}</textarea> 
+			</div>
+			<div class="form-group col-md-4">
+				<label>Instructor</label>
+				<textarea type="text" name="instructor" ngModel class="form-control" rows="1" disabled>{{instructor}}</textarea>
+		  </div>
+		</div>
+	  <div class="form-row">
+	  	<div class="form-group col-md-6">
+				<label for="descriptionTextArea">Description</label>
+				<textarea class="form-control" id="suggestedSolution" name="sugestedSolution" rows="6" ngModel>{{suggestedSolution}}</textarea>
+			</div>
+			<div class="form-group col-md-3">
+				<label>Ticket Created At:</label>
+				<textarea class="form-control" id="createTime" name="createTime" rows="1" ngModel disabled>{{createTime}}</textarea>
+			</div>
+			<div class="form-group col-md-3">
+				<label>Ticket Updated At:</label>
+				<textarea class="form-control" id="updateTime" name="updateTime" rows="1" ngModel disabled>{{updateTime}}</textarea>
+			</div>
+			<button type="submit" class="btn btn-success">Update</button>
+	  	<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+	  	<button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+		</div>
+	</form>
+</div>
+
+<!-- <div class="container" style="margin: 20%;">
 	<form>
 	  <div class="form-row">
 	    <div class="form-group col-md-4">
@@ -43,4 +99,5 @@
 		  <button type="submit" class="btn btn-danger">Delete</button>
 	  </div>
 	</form>
-</div>
+</div> -->
+

@@ -8,7 +8,7 @@ export class CreateTicketService {
 
 	createTicket(name: string, desc: string, location: string, category: string, instructor: string, issueSolved: boolean, suggestedSolution: string, time: string) {
 		let newTicket = {
-			name: name,
+			studentName: name,
 			desc: desc,
 			location: location,
 			category: category,
