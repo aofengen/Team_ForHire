@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as firebase from 'firebase';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { OpenTickets } from '../shared/opentickets.model';
@@ -10,7 +10,9 @@ import { OpenTicketService } from '../services/opentickets.service'
   styleUrls: ['./supdate.component.css']
 })
 export class SupdateComponent implements OnInit {
-	ticket: OpenTickets;
+	@Input() ticket: OpenTickets;
+	@Input() index: number;
+	// ticket: OpenTickets;
 	id: number;
 	studentName: string;
 	desc: string;

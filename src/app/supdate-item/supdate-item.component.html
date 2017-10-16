@@ -1,10 +1,17 @@
-<a 
-style="cursor: pointer;"
-[routerLink]="[index]"
-routerLinkActive="active" 
-class="list-group-item clearfix">
-    <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ ticket.studentName }}</h4>
-        <p class="list-group-item-text">{{ ticket.desc }}</p>
+<div class="row ticRow">
+        <div class="tickHead">
+            <h4><strong>Name:</strong> {{ticket.studentName}}</h4>
+            <h4><strong>Category:</strong> {{ticket.category}}</h4>
+            <h4><strong>Location:</strong> {{ticket.location}}</h4>
+        </div>
+        <div class="tickButton">
+                <button class="edit btn-success"
+                    style="cursor: pointer;"
+                    [routerLink]="[index]"
+                    routerLinkActive="active">
+                    Edit Ticket</button>
+            <button class="details btn-success">Ticket Details</button>
+            <button class="claim btn-success">Claim Ticket</button>
+        </div>
     </div>
-</a>
+    <br>
