@@ -1,6 +1,5 @@
-<!--<app-entry *ngFor="let entry of entries" [entry]="entry"></app-entry>-->
 <app-header></app-header>
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<br>
 		<br>
@@ -19,30 +18,29 @@
 			 {{ ticket.studentName }} ({{ ticket.time }})</app-supdate-item>
 		</ul>
 	</div>
-<!-- 	<br>
-	<br>
+
+</div> -->
+
+
+<div class="container">
 	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
+		<br>
+		<br>
+		<div class="col-sm-11">
+			<h2>Current Issues</h2>
 		</div>
+		<br>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
 	</div>
 	<br>
 	<br>
 	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
-		</div>
+		<app-supdate-item class="col-sm-11 sIssue" *ngFor="let ticket of tickets; let i = index"
+		[ticket]="ticket"
+		[index]="i">
+		</app-supdate-item>
 	</div>
 	<br>
 	<br>
-	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br> -->
 </div>

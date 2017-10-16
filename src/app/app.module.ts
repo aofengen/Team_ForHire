@@ -30,6 +30,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { CreateTicketService } from './services/create-ticket.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     AdminheaderComponent,
     AdminhistoryComponent,
-    SupdateItemComponent
+    SupdateItemComponent,
+    AupdateItemComponent
   ],
   providers: [
     OpenTicketService,
