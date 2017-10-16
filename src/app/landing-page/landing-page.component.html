@@ -1,3 +1,33 @@
-<p>
-  landing-page works!
-</p>
+<div class="container" id="landingPage">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<h1>HELP!!!!</h1>
+			<h2>The perfect system for addressing your student's questions!</h2>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	<br>
+	<div class="row buttons">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-3">
+			<button class="btn btn-primary in" (click)="signup()">Join!</button>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-3">
+			<button class="btn btn-primary up" (click)="login()">Help me!</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 smallSpace">Scroll down to see our video</div>
+		<div class="col-sm-12 space"></div>
+		<div class="col-sm-12 space"></div>
+			<div class="col-sm-12 videoHolder">
+					<div class="video" [ngsReveal]="{ reset:true}">
+							<iframe src="https://www.youtube.com/embed/v-eLrAw-gGc" frameborder="0" align="center" allowfullscreen></iframe>
+					</div>
+					<div class="col-sm-12 smallSpace"></div>
+			</div>
+		 
+	</div>	
+</div>

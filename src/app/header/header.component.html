@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<div class="bar">
+  <h1>{{title}}</h1> <!-- - TODO: change title to user.name on login-->
+  <div class="navigation" role="navigation">
+    <a routerLink="/create" routerLinkActive="active">Create Request</a>
+    <a routerLink="/ticket" routerLinkActive="active">Open Requests</a>
+    <a routerLink="/history" routerLinkActive="active">Solved Requests</a>
+    <a routerLink="/admin/ticket" routerLinkActive="active">Admin Portal</a>
+    <a routerLink="/" routerLinkActive="active" (click)="logout()">Logout</a>
+  </div>
+  <div class="clear"></div>
+</div>
