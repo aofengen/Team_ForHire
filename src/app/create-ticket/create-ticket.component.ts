@@ -25,6 +25,6 @@ export class CreateTicketComponent implements OnInit {
   	const suggestedSoultion = null;
   	const time = Date();
   	this.createTicketService.createTicket(name, desc, location, category, instructor, issueSolved, suggestedSoultion, time);
-  	this.router.navigate(['/home']);
+  	this.router.navigate(['/ticket']);
   }
 }

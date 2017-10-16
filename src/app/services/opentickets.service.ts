@@ -26,4 +26,17 @@ export class OpenTicketService {
 	getOpenTicket(x: number) {
 		return this.tickets[x];
 	}
+
+	getPostID(x: number) {
+		let tickets = [];
+		let openIssuesRef = firebase.database().ref('openIssues');
+		openIssuesRef.once('value').then(function(snapshot) {
+			tickets = snapshot.val();
+			console.log(tickets);
+		//Need to pull items WITHOUT their child elements
+		}) 
+		console.log(tickets[x]);
+		return tickets[x];
+		
+	}
 }

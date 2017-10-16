@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { NgForm, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CreateTicketService } from '../services/create-ticket.service';
 import { OpenTickets } from '../shared/opentickets.model';
 import { OpenTicketService } from '../services/opentickets.service'
 
@@ -12,7 +14,7 @@ import { OpenTicketService } from '../services/opentickets.service'
 export class SupdateComponent implements OnInit {
 	ticket: OpenTickets;
 	id: number;
-	studentName: string = "HI";
+	studentName: string;
 	desc: string;
 	location: string;
 	category: string;
@@ -24,7 +26,8 @@ export class SupdateComponent implements OnInit {
 	
   constructor(private router: Router,
   						private route: ActivatedRoute,
-  						private ticketService: OpenTicketService
+						private ticketService: OpenTicketService,
+						private createTicketService: CreateTicketService
   						) {}
 
   ngOnInit() {
@@ -34,23 +37,39 @@ export class SupdateComponent implements OnInit {
 			  this.id = +params['id'];
 			  this.ticket = this.ticketService.getOpenTicket(this.id);
 			  this.showDetails(this.ticket);
-			  this.studentName = this.ticket.studentName;
+			
 		  }) 
 	}
 
   showDetails(data) {
-	 
-	  this.desc = data.desc;
-	  this.location = data.location;
-	  this.category = data.category;
+	this.studentName = this.ticket.studentName;
+	this.desc = data.desc;
+	this.location = data.location;
+	this.category = data.category;
     this.instructor = data.instructor;
- 	  this.suggestedSolution = data.suggestedSolution;
- 	  this.createTime = data.time;	
- 	  if (!data.updateTime) {
- 	  	this.updateTime = "";
- 	  } else {
+ 	this.suggestedSolution = data.suggestedSolution;
+ 	this.createTime = data.time;	
+ 	if (!data.updateTime) {
+ 		this.updateTime = "";
+ 	} else {
 			this.updateTime = data.updateTime;
- 	  }
+ 	}
+  }
+
+  onSubmit(form: NgForm) {
+	const name = form.value.name;
+	const desc = form.value.desc;
+	const location = form.value.location;
+	const category = form.value.category;
+	const instructor = form.value.instructor;
+	const issueSolved = false;
+	const suggestedSoultion = form.value.suggestedSolution;
+	const createTime = form.value.createTime;
+	const updateTime = Date();
+	const uid = firebase.auth().currentUser.uid;
+	const postID = this.id;
+	this.createTicketService.updateTicket(postID, uid, name, desc, location, category, instructor, issueSolved, suggestedSoultion, createTime, updateTime);
+	this.router.navigate(['/ticket']);
   }
 
   cancel() {
