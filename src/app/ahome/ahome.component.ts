@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenTickets } from '../shared/opentickets.model'
-import { OpenTicketService } from '../shared/opentickets.service';
+import { OpenTicketService } from '../services/opentickets.service';
 
 @Component({
   selector: 'app-ahome',
