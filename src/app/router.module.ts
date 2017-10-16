@@ -12,7 +12,7 @@ import { AhomeComponent } from './ahome/ahome.component';
 import { AdetailComponent } from './adetail/adetail.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
 import { SupdateComponent } from './supdate/supdate.component';
-
+import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
 
 export const routes = [
     { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -24,5 +24,6 @@ export const routes = [
     { path: 'update', component: SupdateComponent, canActivate: [AuthGuard] },
     { path: 'admin/home', component: AhomeComponent, canActivate: [AuthGuard] },
     { path: 'admin/detail', component: AdetailComponent, canActivate: [AuthGuard] },
-    { path: 'admin/update', component: AupdateComponent, canActivate: [AuthGuard] }
+    { path: 'admin/update', component: AupdateComponent, canActivate: [AuthGuard] },
+    { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard]}
 ]

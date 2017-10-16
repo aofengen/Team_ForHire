@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {NgsRevealModule} from 'ng-scrollreveal';
-import {NgsRevealConfig} from 'ng-scrollreveal';
+import { NgsRevealModule } from 'ng-scrollreveal';
+import { NgsRevealConfig } from 'ng-scrollreveal';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -18,6 +18,9 @@ import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
 import { SupdateComponent } from './supdate/supdate.component';
+import { HeaderComponent } from './header/header.component';
+import { AdminheaderComponent } from './adminheader/adminheader.component';
+import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
 
 import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './shared/opentickets.service';
@@ -48,13 +51,16 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     SignupModalComponent,
     LoginModalComponent,
     AupdateComponent,
-    SupdateComponent
+    SupdateComponent,
+    HeaderComponent,
+    AdminheaderComponent,
+    AdminhistoryComponent
   ],
   providers: [
     OpenTicketService,
     AuthService,
     AuthGuard,
-    //AdminGuard,
+   // AdminGuard,
     CreateTicketService,
     NgbActiveModal
   ],
