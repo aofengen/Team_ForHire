@@ -1,40 +1,37 @@
 <!--<app-ahome *ngFor="let entry of entries" [entry]="entry"></app-ahome>-->
 <app-adminheader></app-adminheader>
 <div class="container">
-	<div class="row">
+		<div class="row">
+			<br>
+			<br>
+			<div class="col-sm-11">
+				<h2>Current Issues</h2>
+			</div>
+			<br>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3"></div>
+		</div>
 		<br>
 		<br>
-		<div class="col-sm-11">
-			<h2>Current Issues</h2>
+		<div class="row">
+			<div class="col-sm-11 sIssue" *ngFor="let ticket of tickets; let i = index">
+				<div class="row ticRow">
+					<div class="tickHead">
+						<h4><strong>Name:</strong> {{ticket.studentName}}</h4>
+						<h4><strong>Category:</strong> {{ticket.category}}</h4>
+						<h4><strong>Location:</strong> {{ticket.location}}</h4>
+					</div>
+					<div class="tickButton">
+						<button class="edit btn-success">Edit Ticket</button>
+						<button class="details btn-success">Ticket Details</button>
+						<button class="claim btn-success">Claim Ticket</button>
+					</div>
+				</div>
+				
+				<br>
+			</div>
 		</div>
 		<br>
-		<div class="col-sm-3"></div>
-		<div class="col-sm-3"></div>
+		<br>
+		
 	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-sm-11 sIssue">
-			<p>This will be an unsolved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br>
-</div>
