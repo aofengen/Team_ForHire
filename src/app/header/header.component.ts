@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Users } from '../shared/users.model';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -7,14 +8,20 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-	title = 'HELP!!!'
+
+userInfo: Users[];
+
+title = 'HELP!!!'
+  
+
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.userInfo = this.authService.getUser();
   }
 
-   logout() {
+  logout() {
     this.authService.logout();
   }
 

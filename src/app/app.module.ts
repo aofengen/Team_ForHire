@@ -26,7 +26,6 @@ import { SupdateItemComponent } from './supdate-item/supdate-item.component';
 import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './services/opentickets.service';
 import { AuthGuard } from './services/auth-guard.service';
-//import { AdminGuard } from './services/admin-guard.service';
 import { CreateTicketService } from './services/create-ticket.service';
 import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
@@ -67,7 +66,6 @@ import { HistoryItemComponent } from './history-item/history-item.component';
     OpenTicketService,
     AuthService,
     AuthGuard,
-   // AdminGuard,
     CreateTicketService,
     HistoryService,
     NgbActiveModal
