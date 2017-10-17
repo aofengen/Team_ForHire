@@ -74,7 +74,7 @@ export class AuthService {
 	    	let key = childSnapshot.key;
 	      	let childData = childSnapshot.val();
 			if (childData.email == email) {
-				userInfo.push(childData)
+				userInfo.push(childData);
 			}
 			})
 		})

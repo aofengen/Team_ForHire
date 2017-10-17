@@ -1,6 +1,6 @@
 <div class="bar">
-  <h1>{{title}}</h1> <!-- - TODO: change title to user.name on login-->
-  <h2>Welcome! {{ userInfo[0].name }}</h2>
+  <h1>{{title}}</h1>
+  <h2 *ngFor="let users of userInfo"> Welcome! {{ users.name }}</h2>
   <div class="navigation" role="navigation">
     <a routerLink="/create" routerLinkActive="active">Create Request</a>
     <a routerLink="/ticket" routerLinkActive="active">Open Requests</a>

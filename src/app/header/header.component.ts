@@ -8,13 +8,10 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
 userInfo: Users[];
 
 title = 'HELP!!!'
   
-
-
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
