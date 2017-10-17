@@ -50,29 +50,22 @@ export class SupdateComponent implements OnInit {
 	this.category = data.category;
     this.instructor = data.instructor;
  	this.suggestedSolution = data.suggestedSolution;
- 	this.createTime = data.time;	
- 	if (!data.updateTime) {
- 		this.updateTime = "";
- 	} else {
-			this.updateTime = data.updateTime;
- 	}
+ 	this.createTime = data.createTime;	
+	this.updateTime = data.updateTime;
   }
 
   onSubmit(form: NgForm) {
-	// const studentName = form.value.studentName;
-
-	// const desc = form.value.desc;
-	// const location = form.value.location;
-	// const category = form.value.category;
-	// const instructor = form.value.instructor;
-	// const issueSolved = false;
-	// const suggestedSoultion = form.value.suggestedSolution;
-	// const createTime = form.value.createTime;
-	// const updateTime = Date();
-	// const uid = firebase.auth().currentUser.uid;
-	const postID = this.ticketService.getPostID(this.id)
-	console.log(postID);
-	//this.createTicketService.updateTicket(postID, uid, studentName, desc, location, category, instructor, issueSolved, suggestedSoultion, createTime, updateTime);
+		let updateTicket = {
+			studentName: form.value.studentName,
+			desc: form.value.desc,
+			location: form.value.location,
+			suggestedSolution: form.value.suggestedSolution,
+			updateTime: Date()
+		}
+	this.ticketService.getPostID(this.id).then(function(data) {
+		firebase.database().ref('openIssues/' + data).update(updateTicket);
+	})
+	this.ticketService.getOpenTickets();
 	this.router.navigate(['/ticket']);
   }
 
@@ -81,7 +74,9 @@ export class SupdateComponent implements OnInit {
   }
 
   delete() {
-  	firebase.database().ref('openIssues/' + this.id).remove();
+	this.ticketService.getPostID(this.id).then(function(data) {
+		firebase.database().ref('openIssues/' + data).remove();	
+	})
   	this.router.navigate(['/ticket']);
   }
 
