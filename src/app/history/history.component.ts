@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HistoryModel } from '../shared/history.model'
+import { HistoryService } from '../services/history.service';
 
 @Component({
   selector: 'app-history',
@@ -6,11 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
+  solvedTickets: HistoryModel[];
 
-  constructor() { }
+  constructor(private hService:HistoryService) { }
 
   ngOnInit() {
-  
+    this.solvedTickets = this.hService.getHistory();
+    this.hService.closedTickets
+    .subscribe(
+      (solvedTickets: HistoryModel[]) => {
+        this.solvedTickets = solvedTickets;
+      }
+     );
   }
 
 }

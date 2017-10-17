@@ -20,11 +20,13 @@ export class CreateTicketComponent implements OnInit {
   	const desc = form.value.desc;
   	const location = form.value.location;
   	const category = form.value.category;
-  	const instructor = null;
   	const issueSolved = false;
-  	const suggestedSoultion = null;
   	const time = Date();
-  	this.createTicketService.createTicket(name, desc, location, category, instructor, issueSolved, suggestedSoultion, time);
+  	this.createTicketService.createTicket(name, desc, location, category, issueSolved, time);
   	this.router.navigate(['/ticket']);
+  }
+
+  cancel() {
+  	this.router.navigate(['ticket']);
   }
 }
