@@ -48,10 +48,10 @@
 				<label>Ticket Updated At:</label>
 				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
 			</div>
-			<button type="submit" class="btn btn-success">Update</button>
-	  	<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
-			<button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
-			<button type="button" class="btn btn-primary" (click)="closeIssue()">Close Issue</button>
+			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>
+			<button type="submit" class="btn btn-success btns">Update</button>
+			<button type="button" class="btn btn-danger btns" (click)="delete()">Delete</button>
+			<button type="button" class="btn btn-primary btns" (click)="closeIssue()">Close Issue</button>
 		</div>
 	</form>
 </div>
