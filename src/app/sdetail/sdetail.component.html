@@ -1,46 +1,54 @@
-<div class="container" style="margin: 20%;">
-	<form>
+<app-header></app-header>
+
+<div class="container">
+	<div class="row">
+		<br>
+		<br>
+		<div class="col-sm-11">
+			<h2>Ticket Details</h2>
+		</div>
+		<br>
+	</div>
+	<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 	  <div class="form-row">
-	    <div class="form-group col-md-4">
-	      <label for="inputName" class="col-form-label">Name</label>
-	      <input type="text" class="form-control" id="inputName" disabled>
-	    </div>
+			<div class="form-group col-md-4">
+			  <label for="inputName" class="col-form-label">Name</label>
+			  <input type="text" class="form-control" id="studentName" name="studentName" rows="1" [(ngModel)]="studentName" disabled>
+			</div>
 	  </div>
 	  <div class="form-group">
-		<label for="descriptionTextArea">Description</label>
-		<textarea class="form-control" id="descriptionTextArea" rows="6" disabled></textarea>
-	  </div>
+			<label for="descriptionTextArea">Description</label>
+			<textarea class="form-control" id="desc" name="desc" rows="6" [(ngModel)]="desc" disabled></textarea>
+		</div>
 	  <div class="form-row">
-	    <div class="form-group col-md-4">
-	      <label for="inputInstructor" class="col-form-label">Instructor</label>
-	      <input type="text" class="form-control" id="inputInstructor" disabled>
-	    </div>
-	  </div>
+			<div class="form-group col-md-4">
+			  <label for="inputLocation" class="col-form-label">Location</label>
+			  <input type="text" id="location" name="location" [(ngModel)]="location" class="form-control" rows="1" disabled>
+			</div>
+			<div class="form-group col-md-4">
+			  <label for="inputCategory" class="col-form-label">Category</label>
+			  <!-- <select #category class="form-control" NgModel></select> -->
+			  <input type="text" id="category" name="category" [(ngModel)]="category" class="form-control" rows="1" disabled>
+			</div>
+			<div class="form-group col-md-4">
+				<label>Instructor</label>
+				<input type="text" name="instructor" [(ngModel)]="instructor" class="form-control" rows="1" disabled>
+		  </div>
+		</div>
 	  <div class="form-row">
-	    <div class="form-group col-md-4">
-	      <label for="inputLocation" class="col-form-label">Location</label>
-	      <select id="inputLocation" class="form-control" disabled></select>
-	    </div>
-	    <div class="form-group col-md-4">
-	      <label for="inputCategory" class="col-form-label">Category</label>
-	      <select id="inputCategory" class="form-control" disabled></select>
-	    </div>
-	    <div class="form-group col-md-2">
-	      <label for="inputZip" class="col-form-label">Time</label>
-	      <input type="text" class="form-control" id="inputTime" disabled>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="form-check">
-	      <label class="form-check-label">
-	        <input class="form-check-input" type="checkbox"> Claim Ticket
-	      </label>
-	    </div>
-	  </div>
-	  <div>
-		  <button type="submit" class="btn btn-success">Submit</button>
-		  <button type="submit" class="btn btn-primary">Update</button>
-		  <button type="submit" class="btn btn-danger">Delete</button>
-	  </div>
+	  	<div class="form-group col-md-6">
+				<label for="descriptionTextArea">Suggested Solution</label>
+				<textarea class="form-control" id="suggestedSolution" name="suggestedSolution" rows="6" [(ngModel)]="suggestedSolution" disabled></textarea>
+			</div>
+			<div class="form-group col-md-3">
+				<label>Ticket Created At:</label>
+				<input class="form-control" id="createTime" name="createTime" rows="1" [(ngModel)]="createTime" disabled>
+			</div>
+			<div class="form-group col-md-3">
+				<label>Ticket Updated At:</label>
+				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
+			</div>
+			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>
+		</div>
 	</form>
 </div>

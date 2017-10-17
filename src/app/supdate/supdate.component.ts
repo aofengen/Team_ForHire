@@ -24,7 +24,6 @@ export class SupdateComponent implements OnInit {
 	suggestedSolution: string;
 	createTime: string;
 	updateTime: string;
-
 	
   constructor(private router: Router,
   						private route: ActivatedRoute,

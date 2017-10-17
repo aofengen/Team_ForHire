@@ -19,7 +19,6 @@ title = 'HELP!!!'
 
   ngOnInit() {
     this.userInfo = this.authService.getUser();
-    console.log(this.userInfo);
   }
 
   logout() {
