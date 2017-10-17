@@ -53,7 +53,7 @@ export class AuthService {
 		firebase.auth().signOut()
 		.then(
 			response => {
-				this.router.navigate(['/landing'])
+				this.router.navigate(['/'])
 			}
 		);
 		this.token = null;

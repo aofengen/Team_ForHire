@@ -41,5 +41,6 @@ export class OpenTicketService {
 		}) 
 		console.log(ticketID);
 		//return this.ticketList[y];	
+
 	}
 }

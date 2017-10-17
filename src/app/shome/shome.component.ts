@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OpenTickets } from '../shared/opentickets.model'
 import { OpenTicketService } from '../services/opentickets.service';
 
