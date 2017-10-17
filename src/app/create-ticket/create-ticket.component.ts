@@ -25,4 +25,8 @@ export class CreateTicketComponent implements OnInit {
   	this.createTicketService.createTicket(name, desc, location, category, issueSolved, time);
   	this.router.navigate(['/ticket']);
   }
+
+  cancel() {
+  	this.router.navigate(['ticket']);
+  }
 }

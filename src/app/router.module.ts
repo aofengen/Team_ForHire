@@ -23,6 +23,5 @@ export const routes = [
     { path: 'ticket/:id', component: SupdateComponent, canActivate: [AuthGuard] },
     { path: 'admin/ticket', component: AhomeComponent, canActivate: [AuthGuard] },
     { path: 'admin/ticket/:id', component: AupdateComponent, canActivate: [AuthGuard] },
-    { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] },
-    { path: 'admin/detail/:id', component: AdetailComponent, canActivate: [AuthGuard] }
+    { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] }
 ]
