@@ -5,6 +5,7 @@ import { EventEmitter } from '@angular/core';
 export class OpenTicketService {
 	openTicketsChanged = new EventEmitter<OpenTickets[]>();
 	private tickets: OpenTickets[] = [];
+	private ticketList = [];
 
 	constructor() {
 	 }
@@ -15,9 +16,9 @@ export class OpenTicketService {
 		let openIssuesRef = database.ref('openIssues').orderByKey();
 		openIssuesRef.once('value').then(function(snapshot) {
 	    	snapshot.forEach(function(childSnapshot) {
-	    	let key = childSnapshot.key;
-	      	let childData = childSnapshot.val();
-			tickets.push(childData);
+				let key = childSnapshot.key;
+				let childData = childSnapshot.val();
+				tickets.push(childData);
 	    	});
 		});	
 		return this.tickets = tickets;
@@ -27,16 +28,18 @@ export class OpenTicketService {
 		return this.tickets[x];
 	}
 
-	getPostID(x: number) {
-		let tickets = [];
+	getPostID(y: number) {
+		let ticketList = []
 		let openIssuesRef = firebase.database().ref('openIssues');
-		openIssuesRef.once('value').then(function(snapshot) {
-			tickets = snapshot.val();
-			console.log(tickets);
-		//Need to pull items WITHOUT their child elements
+		let ticketID = openIssuesRef.once('value').then(function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				let key = childSnapshot.key;
+				ticketList.push(key);
+			})
+			console.log("test: ", ticketList[y]);
+			return ticketList[y];
 		}) 
-		console.log(tickets[x]);
-		return tickets[x];
-		
+		console.log(ticketID);
+		//return this.ticketList[y];	
 	}
 }

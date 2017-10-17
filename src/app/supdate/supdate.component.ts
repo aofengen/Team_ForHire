@@ -57,18 +57,18 @@ export class SupdateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-	const name = form.value.name;
-	const desc = form.value.desc;
-	const location = form.value.location;
-	const category = form.value.category;
-	const instructor = form.value.instructor;
-	const issueSolved = false;
-	const suggestedSoultion = form.value.suggestedSolution;
-	const createTime = form.value.createTime;
-	const updateTime = Date();
-	const uid = firebase.auth().currentUser.uid;
-	const postID = this.id;
-	this.createTicketService.updateTicket(postID, uid, name, desc, location, category, instructor, issueSolved, suggestedSoultion, createTime, updateTime);
+	// const name = form.value.name;
+	// const desc = form.value.desc;
+	// const location = form.value.location;
+	// const category = form.value.category;
+	// const instructor = form.value.instructor;
+	// const issueSolved = false;
+	// const suggestedSoultion = form.value.suggestedSolution;
+	// const createTime = form.value.createTime;
+	// const updateTime = Date();
+	// const uid = firebase.auth().currentUser.uid;
+	const postID = this.ticketService.getPostID(this.id);
+	//this.createTicketService.updateTicket(postID, uid, name, desc, location, category, instructor, issueSolved, suggestedSoultion, createTime, updateTime);
 	this.router.navigate(['/ticket']);
   }
 
