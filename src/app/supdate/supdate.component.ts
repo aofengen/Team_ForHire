@@ -60,6 +60,7 @@ export class SupdateComponent implements OnInit {
 
   onSubmit(form: NgForm) {
 	// const studentName = form.value.studentName;
+
 	// const desc = form.value.desc;
 	// const location = form.value.location;
 	// const category = form.value.category;

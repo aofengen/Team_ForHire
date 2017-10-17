@@ -31,20 +31,16 @@ export class OpenTicketService {
 	getPostID(y: number) {
 		let ticketList = []
 		let openIssuesRef = firebase.database().ref('openIssues');
-		openIssuesRef.once('value').then(function(snapshot) {
+		let ticketID = openIssuesRef.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				let key = childSnapshot.key;
-				// console.log(key)
-				// console.log(ticketList)
 				ticketList.push(key);
 			})
+			console.log("test: ", ticketList[y]);
+			return ticketList[y];
 		}) 
-		this.ticketList = ticketList;
-		console.log(this.ticketList)
-		console.log(Array.isArray(this.tickets));
-		console.log(y);
-		// console.log(this.ticketList[y]);
-		// console.log(this.ticketList[4]);
-		return this.ticketList[y];	
+		console.log(ticketID);
+		//return this.ticketList[y];	
+
 	}
 }
