@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
+import { Users } from '../shared/users.model';
 import { Injectable } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -7,6 +8,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AuthService {
 	token: string;
+	private userInfo: Users[] = [];
 
 	constructor(public activeModal: NgbActiveModal, private router: Router) {}
 
@@ -25,7 +27,6 @@ export class AuthService {
   			)
   		})
   	.catch(error => console.log(error))
-
 		let User = firebase.database().ref('users/');
 		let newUser = User.push()
   	newUser.set({
@@ -61,6 +62,25 @@ export class AuthService {
 
 	isAuthenticated() {
 		return this.token != null;
+	}
+
+	getUser() {
+		let database = firebase.database();
+		let email = firebase.auth().currentUser.email;
+		let userInfo = [];
+		let usersRef = firebase.database().ref('users').orderByKey();
+		usersRef.once('value').then(function(snapshot) {
+				snapshot.forEach(function(childSnapshot) {
+	    	let key = childSnapshot.key;
+	      	let childData = childSnapshot.val();
+			console.log(childData);
+			if (childData.email == email) {
+				userInfo.push(childData)
+			}
+			})
+			console.log(userInfo)
+		})
+		return this.userInfo = userInfo;
 	}
 
 	/*
