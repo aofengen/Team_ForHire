@@ -15,8 +15,7 @@ import { SupdateComponent } from './supdate/supdate.component';
 import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
 
 export const routes = [
-    { path: '', redirectTo: '/landing', pathMatch: 'full' },
-    { path: 'landing', component: LandingPageComponent },
+    { path: '', component: LandingPageComponent },
     { path: 'create', component: CreateTicketComponent, canActivate: [AuthGuard] },
     { path: 'history', component: HistoryComponent, canActivate: [AuthGuard] },
     { path: 'history/:id', component: SdetailComponent, canActivate: [AuthGuard] },
