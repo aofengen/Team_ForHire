@@ -1,4 +1,5 @@
 <div class="row ticRow">
+<<<<<<< HEAD
     <div class="tickHead">
         <h4><strong>Name:</strong> {{ticket.studentName}}</h4>
         <h4><strong>Category:</strong> {{ticket.category}}</h4>
@@ -13,3 +14,21 @@
         <button class="details btn-success">Ticket Details</button>
     </div>
 </div>
+=======
+        <div class="tickHead">
+            <h4><strong>Name:</strong> {{ticket.studentName}}</h4>
+            <h4><strong>Category:</strong> {{ticket.category}}</h4>
+            <h4><strong>Location:</strong> {{ticket.location}}</h4>
+        </div>
+        <div class="tickButton">
+                <button class="edit btn-success"
+                    style="cursor: pointer;"
+                    [routerLink]="[index]"
+                    routerLinkActive="active">
+                    Edit Ticket</button>
+            <button class="details btn-success">Ticket Details</button>
+            <button class="claim btn-success">Claim Ticket</button>
+        </div>
+    </div>
+    <br>
+>>>>>>> 12a40fe9dc2f71d74295d6fad5e7d76567d3086a
