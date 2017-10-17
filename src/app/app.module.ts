@@ -28,9 +28,11 @@ import { OpenTicketService } from './services/opentickets.service';
 import { AuthGuard } from './services/auth-guard.service';
 //import { AdminGuard } from './services/admin-guard.service';
 import { CreateTicketService } from './services/create-ticket.service';
+import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
+import { HistoryItemComponent } from './history-item/history-item.component';
 
 @NgModule({
   imports: [
@@ -58,7 +60,8 @@ import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
     AdminheaderComponent,
     AdminhistoryComponent,
     SupdateItemComponent,
-    AupdateItemComponent
+    AupdateItemComponent,
+    HistoryItemComponent
   ],
   providers: [
     OpenTicketService,
@@ -66,6 +69,7 @@ import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
     AuthGuard,
    // AdminGuard,
     CreateTicketService,
+    HistoryService,
     NgbActiveModal
   ],
   entryComponents: [
