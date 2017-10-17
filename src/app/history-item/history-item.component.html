@@ -2,15 +2,12 @@
   <div class="tickHead">
       <h4><strong>Name:</strong> {{solvedTickets.name}}</h4>
       <h4><strong>Category:</strong> {{solvedTickets.category}}</h4>
-      <h4><strong>Location:</strong> {{solvedTickets.solvedBy}}</h4>
+      <h4><strong>Solved By:</strong> {{solvedTickets.solvedBy}}</h4>
   </div>
   <div class="tickButton">
-          <button class="edit btn-success"
-              style="cursor: pointer;"
-              [routerLink]="[index]"
-              routerLinkActive="active">
-              Edit Ticket</button>
-      <button class="details btn-success">Ticket Details</button>
+      <button class="details btn-success" style="cursor: pointer;"
+      [routerLink]="'detail/'+[index]"
+      routerLinkActive="active">Ticket Details</button>
   </div>
 </div>
 <br>
