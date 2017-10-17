@@ -73,12 +73,10 @@ export class AuthService {
 				snapshot.forEach(function(childSnapshot) {
 	    	let key = childSnapshot.key;
 	      	let childData = childSnapshot.val();
-			console.log(childData);
 			if (childData.email == email) {
-				userInfo.push(childData)
+				userInfo.push(childData);
 			}
 			})
-			console.log(userInfo)
 		})
 		return this.userInfo = userInfo;
 	}
