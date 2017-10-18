@@ -16,10 +16,17 @@ export class SignupModalComponent implements OnInit {
   }
 
   onSignup(name: string, email: string, username: string, password: string) {
+
     if (name === "" || email.trim()==="" || username==="" || password.trim()==="")
     {
       alert("Please enter all fields!");
+
+    }if (password.length < 6) {
+
+      alert("Please enter a longer password! Must be at least 6 characters.");
+
     } else {
+
       this.authService.newUser(name, email.trim(), username, password.trim());
       this.activeModal.close('Close click');
     }
