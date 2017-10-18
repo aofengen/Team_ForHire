@@ -34,6 +34,7 @@ import { CreateTicketService } from './services/create-ticket.service';
 import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     AupdateItemComponent,
     HistoryItemComponent,
     HistoryDetailComponent,
-    AdminhistoryDetailComponent
+    AdminhistoryDetailComponent,
+    AdminhistoryItemComponent
   ],
   providers: [
     OpenTicketService,

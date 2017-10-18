@@ -1,3 +1,53 @@
-<p>
-  adminhistory-detail works!
-</p>
+<app-adminheader></app-adminheader>
+
+<div class="container">
+	<div class="row">
+		<br>
+		<br>
+		<div class="col-sm-11">
+			<h2>Ticket Details</h2>
+		</div>
+		<br>
+	</div>
+	<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+	  <div class="form-row">
+			<div class="form-group col-md-4">
+			  <label class="col-form-label">Name</label>
+			  <input type="text" class="form-control" name="studentName" [(ngModel)]="studentName" disabled>
+			</div>
+	  </div>
+	  <div class="form-group">
+			<label>Description</label>
+			<textarea class="form-control" name="desc" rows="3" [(ngModel)]="desc" disabled></textarea>
+		</div>
+	  <div class="form-row">
+			<div class="form-group col-md-6">
+				<label>Solution</label>
+				<textarea class="form-control" name="solution" rows="6" [(ngModel)]="solution" disabled></textarea>
+      </div>
+			<div class="form-group col-md-3">
+			  <label>Category</label>
+			  <input type="text" name="category" [(ngModel)]="category" class="form-control" rows="1" disabled>
+			</div>
+			<div class="form-group col-md-3">
+				<label>Solved By:</label>
+				<input type="text" name="solvedBy" [(ngModel)]="solvedBy" class="form-control" rows="1" disabled>
+		  </div>
+		</div>
+	  <div class="form-row">
+			<div class="form-group col-md-4">
+				<label>Ticket Created At:</label>
+				<input class="form-control" id="createTime" name="createTime" [(ngModel)]="createTime" disabled>
+			</div>
+			<div class="form-group col-md-4">
+				<label>Ticket Updated At:</label>
+				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
+      </div>
+      <div class="form-group col-md-4">
+			  <label>Time Spent to Solve:</label>
+			  <input type="text" name="timeSpent" [(ngModel)]="timeSpent" class="form-control" disabled>
+			</div>
+			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>
+		</div>
+	</form>
+</div>
