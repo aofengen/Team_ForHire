@@ -26,66 +26,66 @@ Clone this Github repository, run npm install to install the dependencies, and t
 
 Ensure you have [Firebase Tools](https://github.com/firebase/firebase-tools) installed globally on your system. Deploy to Firebase - [this is a good tutorial](https://alligator.io/angular/deploying-angular-app-to-firebase/). The relevant commands are:
 
-ng build
-firebase init
-You will have to login with your Firebase credentials, and choose/create a Firebase project
-Choose the Hosting option
-When it asks about the public, enter dist instead
-Edit the firebase.json file to include the 'rewrites' section:
- {
-   "hosting": {
-     "public": "dist",
-     "ignore": [
-       "firebase.json",
-       "**/.*",
-       "**/node_modules/**"
-     ],
-     "rewrites": [
-       {
-         "source": "/dist/**",
-         "destination": "/index.html"
-       },
-       {
-         "source": "**",
-         "destination": "/index.html"
-       }
-     ]
-   }
- }
-firebase deploy
-#.
+    -`ng build`
+    -`firebase init`
+        -You will have to login with your Firebase credentials, and choose/create a Firebase project
+        -Choose the Hosting option
+        -When it asks about the public, enter dist instead
+    -Edit the firebase.json file to include the '*rewrites*' section:
+        - ``` {
+            {
+            "hosting": {
+                "public": "dist",
+                "ignore": [
+                "firebase.json",
+                "**/.*",
+                "**/node_modules/**"
+                ],
+                "rewrites": [
+                {
+                    "source": "/dist/**",
+                    "destination": "/index.html"
+                },
+                {
+                    "source": "**",
+                    "destination": "/index.html"
+                }
+                ]
+            }
+            }
+ - `firebase deploy`
 
-#.
+# .
+# .
+# .
 
-#.
 
 
 ## Angular CLI References
 
-# QueueApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
