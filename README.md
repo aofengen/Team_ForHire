@@ -26,11 +26,11 @@ Clone this Github repository, run npm install to install the dependencies, and t
 
 Ensure you have [Firebase Tools](https://github.com/firebase/firebase-tools) installed globally on your system. Deploy to Firebase - [this is a good tutorial](https://alligator.io/angular/deploying-angular-app-to-firebase/). The relevant commands are:
 
-    -`ng build`
-    -`firebase init`
-        -You will have to login with your Firebase credentials, and choose/create a Firebase project
-        -Choose the Hosting option
-        -When it asks about the public, enter dist instead
+- `ng build`
+- `firebase init`
+    - You will have to login with your Firebase credentials, and choose/create a Firebase project
+    - Choose the Hosting option
+    - When it asks about the public, enter dist instead
     -Edit the firebase.json file to include the '*rewrites*' section:
         - ``` {
             {
