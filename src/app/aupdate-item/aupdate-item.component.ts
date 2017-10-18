@@ -21,7 +21,7 @@ export class AupdateItemComponent implements OnInit {
 
   claimTicket() {
     let userInfo = firebase.auth().currentUser.displayName;
-    this.ticketService.getPostID(this.index).then(function(data) {
+    this.ticketService.getPostID("openIssues", this.index).then(function(data) {
       firebase.database().ref('openIssues/' + data).update(userInfo);
     })
     this.router.navigate(['admin/ticket']);

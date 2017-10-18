@@ -28,9 +28,9 @@ export class OpenTicketService {
 		return this.tickets[x];
 	}
 
-	getPostID(y: number) {
+	getPostID(x: string, y: number) {
 		let ticketList = []
-		let openIssuesRef = firebase.database().ref('openIssues');
+		let openIssuesRef = firebase.database().ref(x);
 		return openIssuesRef.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				let key = childSnapshot.key;
@@ -38,5 +38,9 @@ export class OpenTicketService {
 			})
 			return ticketList[y];
 		}) 	
+	}
+
+	updateOpenTickets(x: number) {
+		this.tickets.splice(x, 1);
 	}
 }

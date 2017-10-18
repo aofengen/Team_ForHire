@@ -4,7 +4,9 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { OpenTickets } from '../shared/opentickets.model';
-import { OpenTicketService } from '../services/opentickets.service'
+import { OpenTicketService } from '../services/opentickets.service';
+import { SHomeComponent } from '../shome/shome.component';
+
 
 @Component({
   selector: 'app-supdate',
@@ -28,7 +30,8 @@ export class SupdateComponent implements OnInit {
   constructor(private router: Router,
   						private route: ActivatedRoute,
 						private ticketService: OpenTicketService,
-						private createTicketService: CreateTicketService
+						private createTicketService: CreateTicketService,
+						private sHome: SHomeComponent
   						) {}
 
   ngOnInit() {
@@ -61,10 +64,10 @@ export class SupdateComponent implements OnInit {
 			suggestedSolution: form.value.suggestedSolution,
 			updateTime: Date()
 		}
-	this.ticketService.getPostID(this.id).then(function(data) {
+	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
 		firebase.database().ref('openIssues/' + data).update(updateTicket);
 	})
-	this.ticketService.getOpenTickets();
+	this.router.navigate(['/history']);
 	this.router.navigate(['/ticket']);
   }
 
@@ -73,9 +76,10 @@ export class SupdateComponent implements OnInit {
   }
 
   delete() {
-	this.ticketService.getPostID(this.id).then(function(data) {
+	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
 		firebase.database().ref('openIssues/' + data).remove();	
 	})
+		this.ticketService.updateOpenTickets(this.id);
   	this.router.navigate(['/ticket']);
   }
 

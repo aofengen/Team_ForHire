@@ -16,7 +16,12 @@ export class SignupModalComponent implements OnInit {
   }
 
   onSignup(name: string, email: string, username: string, password: string) {
-  	this.authService.newUser(name, email, username, password);
-  	this.activeModal.close('Close click');
+    if (name === "" || email.trim()==="" || username==="" || password.trim()==="")
+    {
+      alert("Please enter all fields!");
+    } else {
+      this.authService.newUser(name, email.trim(), username, password.trim());
+      this.activeModal.close('Close click');
+    }
   }
 }

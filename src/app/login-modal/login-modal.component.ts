@@ -18,7 +18,11 @@ export class LoginModalComponent implements OnInit {
   }
 
   onLogin(email: string, password: string) {
-  	this.authService.loginUser(email, password);
-  	this.activeModal.close('Close click');
+    if (email.trim()==="" || password.trim()==="") {
+      alert("Please enter all fields!");
+    } else {
+      this.authService.loginUser(email, password);
+  	  this.activeModal.close('Close click');
+    }
 	}
 }

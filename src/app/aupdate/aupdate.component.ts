@@ -62,7 +62,7 @@ export class AupdateComponent implements OnInit {
 			suggestedSolution: form.value.suggestedSolution,
 			updateTime: Date()
 		}
-	this.ticketService.getPostID(this.id).then(function(data) {
+	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
 		firebase.database().ref('openIssues/' + data).update(updateTicket);
 	})
 	this.ticketService.getOpenTickets();
@@ -74,7 +74,7 @@ export class AupdateComponent implements OnInit {
   }
 
   delete() {
-	this.ticketService.getPostID(this.id).then(function(data) {
+	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
 		firebase.database().ref('openIssues/' + data).remove();	
 	})
   	this.router.navigate(['admin/ticket']);

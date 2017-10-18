@@ -10,17 +10,16 @@ import { OpenTicketService } from '../services/opentickets.service';
 export class SHomeComponent implements OnInit {
 tickets: OpenTickets[];
 
-  constructor(private otService: OpenTicketService) { }
+  constructor(private ticketService: OpenTicketService) { }
 
   ngOnInit() {
-    this.tickets = this.otService.getOpenTickets();
-    this.otService.openTicketsChanged
+    this.tickets = this.ticketService.getOpenTickets();
+    this.ticketService.openTicketsChanged
     .subscribe(
       (tickets: OpenTickets[]) => {
-        this.tickets = tickets;
+      this.tickets = tickets;
       }
-     );
+    );
   }
-
 
 }
