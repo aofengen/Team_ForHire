@@ -1,44 +1,23 @@
-<!--<app-history *ngFor="let entry of entries" [entry]="entry"></app-history>-->
 <app-adminheader></app-adminheader>
 <div class="container">
 	<div class="row">
 		<br>
 		<br>
-		<div class="col-md-12">
-			<h2>Resolved Issues</h2>
+		<div class="col-sm-11">
+			<h2>Solved Issues</h2>
 		</div>
 		<br>
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-		  <input type="text" class="form-control" placeholder="Search resolved issues for your problem">
-		</div>
-		<div class="col-md-3"></div>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
 	</div>
 	<br>
 	<br>
 	<div class="row">
-		<div class="col-md-11 aIssue">
-			<p>This will be a solved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-md-11 aIssue">
-			<p>This will be a solved request!</p>
-			<br>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-md-11 aIssue">
-			<p>This will be a solved request!</p>
-			<br>
-		</div>
+		<app-history-item class="col-sm-11 sIssue" *ngFor="let solvedTicket of solvedTickets; let i = index"
+		[solvedTicket]="solvedTicket"
+		[index]="i">
+		</app-history-item>
 	</div>
 	<br>
 	<br>
 </div>
-
