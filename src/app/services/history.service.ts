@@ -1,46 +1,29 @@
 import { HistoryModel } from '../shared/history.model';
-import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { EventEmitter } from '@angular/core';
 
-@Injectable()
 export class HistoryService {
   closedTickets = new EventEmitter<HistoryModel[]>();
-  private solvedTickets: HistoryModel[] = [];
+  private solvedTicket: HistoryModel[] = [];
 
   constructor() { 
-
-  }
+	 }
   
   getHistory(){
-    let solvedTickets = []
+    let solvedTicket = []
     let database = firebase.database();
     let HistoryRef = database.ref('history').orderByKey();
 		HistoryRef.once('value').then(function(snapshot) {
 	    	snapshot.forEach(function(childSnapshot) {
-	    	let key = childSnapshot.key;
-	      	let childData = childSnapshot.val();
-			solvedTickets.push(childData);
+				let key = childSnapshot.key;
+				let childData = childSnapshot.val();
+				solvedTicket.push(childData);
 	    	});
 		});	
-		return this.solvedTickets = solvedTickets;
+		return this.solvedTicket = solvedTicket;
   }
 
   getClosedTicket(x: number) {
-		return this.solvedTickets[x];
-	}
-
-	getPostID(x: number) {
-		let solvedTickets = [];
-		let HistoryRef = firebase.database().ref('history');
-    HistoryRef.once('value').then(function(snapshot) {
-			solvedTickets = snapshot.val();
-			console.log(solvedTickets);
-		//Need to pull items WITHOUT their child elements
-		}) 
-		console.log(solvedTickets[x]);
-		return solvedTickets[x];
-		
+		return this.solvedTicket[x];
 	}
 }
-

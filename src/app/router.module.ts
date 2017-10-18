@@ -13,16 +13,20 @@ import { AdetailComponent } from './adetail/adetail.component';
 import { AupdateComponent } from './aupdate/aupdate.component';
 import { SupdateComponent } from './supdate/supdate.component';
 import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
+import { HistoryDetailComponent } from './history-detail/history-detail.component';
+import { AdminhistoryDetailComponent } from './adminhistory-detail/adminhistory-detail.component';
 
 export const routes = [
     { path: '', component: LandingPageComponent },
     { path: 'create', component: CreateTicketComponent, canActivate: [AuthGuard] },
     { path: 'history', component: HistoryComponent, canActivate: [AuthGuard] },
+    { path: 'history/:id', component: HistoryDetailComponent, canActivate: [AuthGuard] },
     { path: 'ticket/detail/:id', component: SdetailComponent, canActivate: [AuthGuard] },
     { path: 'ticket', component: SHomeComponent, canActivate: [AuthGuard] },
     { path: 'ticket/:id', component: SupdateComponent, canActivate: [AuthGuard] },
     { path: 'admin/ticket', component: AhomeComponent, canActivate: [AuthGuard] },
     { path: 'admin/ticket/:id', component: AupdateComponent, canActivate: [AuthGuard] },
     { path: 'admin/ticket/detail/:id', component: AdetailComponent, canActivate: [AuthGuard] },
-    { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] }
+    { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] },
+    { path: 'admin/history/:id', component: AdminhistoryDetailComponent, canActivate: [AuthGuard] },
 ]
