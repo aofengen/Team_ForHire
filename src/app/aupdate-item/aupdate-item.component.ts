@@ -15,16 +15,17 @@ export class AupdateItemComponent implements OnInit {
   @Input() index: number;
 
   constructor(private ticketService: OpenTicketService, private authService: AuthService, private router: Router) { }
+  private userInfo = [];
+  user: string;
 
   ngOnInit() {
   }
 
   claimTicket() {
-    let userInfo = firebase.auth().currentUser.displayName;
+    let instructorName = prompt("Enter your name:");
     this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-      firebase.database().ref('openIssues/' + data).update(userInfo);
+      firebase.database().ref('openIssues/' + data).update({'instructor': instructorName});
     })
     this.router.navigate(['admin/ticket']);
   }
-
 }

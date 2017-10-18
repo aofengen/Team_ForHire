@@ -10,7 +10,6 @@ import { NgsRevealConfig } from 'ng-scrollreveal';
 export class AppComponent implements OnInit {
 
   title = 'HELP!!!';
-  token = true;
 
   constructor() {}
 

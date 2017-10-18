@@ -14,7 +14,6 @@ export class AdminhistoryDetailComponent implements OnInit {
 
   @Input() solvedTicket: HistoryModel;
 	@Input() index: number;
-  id: number;
 	studentName: string;
   desc: string;
   timeSpent: string;
@@ -22,7 +21,7 @@ export class AdminhistoryDetailComponent implements OnInit {
 	solvedBy: string;
 	solution: string;
 	createTime: string;
-	updateTime: string;
+	finishTime: string;
 
 	
   constructor(private router: Router,
@@ -34,8 +33,8 @@ export class AdminhistoryDetailComponent implements OnInit {
  		this.route.params
       .subscribe(
           (params: Params) => {
-			  this.id = +params['id'];
-			  this.solvedTicket = this.historyService.getClosedTicket(this.id);
+			  this.index = +params['id'];
+			  this.solvedTicket = this.historyService.getClosedTicket(this.index);
 			  this.showDetails(this.solvedTicket);
 		  }) 
   }
@@ -48,7 +47,7 @@ export class AdminhistoryDetailComponent implements OnInit {
       this.solvedBy = data.solvedBy;
      this.solution = data.solution;
      this.createTime = data.createTime;	
-    this.updateTime = data.updateTime;
+    this.finishTime = data.finishTime;
     }
 
   cancel() {

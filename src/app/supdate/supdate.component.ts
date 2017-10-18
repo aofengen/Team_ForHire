@@ -15,8 +15,7 @@ import { OpenTicketService } from '../services/opentickets.service';
 export class SupdateComponent implements OnInit {
 	@Input() ticket: OpenTickets;
 	@Input() index: number;
-	// ticket: OpenTickets;
-	id: number;
+	id: string;
 	studentName: string;
 	desc: string;
 	location: string;
@@ -36,8 +35,8 @@ export class SupdateComponent implements OnInit {
  		this.route.params
       .subscribe(
           (params: Params) => {
-			  this.id = +params['id'];
-			  this.ticket = this.ticketService.getOpenTicket(this.id);
+			  this.index = +params['id'];
+			  this.ticket = this.ticketService.getOpenTicket(this.index);
 			  this.showDetails(this.ticket);
 			
 		  }) 
@@ -55,30 +54,52 @@ export class SupdateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-		let updateTicket = {
-			studentName: form.value.studentName,
-			desc: form.value.desc,
-			location: form.value.location,
-			suggestedSolution: form.value.suggestedSolution,
-			updateTime: Date()
+		let close = confirm("Have you solved the issue?");
+		if (close == true && this.ticket.id == firebase.auth().currentUser.uid) {
+			let solvedBy = prompt("Who solved the issue?");
+			let solution = prompt("How was the problem solved?");
+			let completedTicket = {
+				studentName: form.value.studentName,
+				desc: form.value.desc,
+				category: this.category,
+				solution: solution,
+				solvedBy: solvedBy,
+				createTime: this.createTime,
+				finishTime: Date(),
+				issueSolved: true
+			}
+			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+				firebase.database().ref('history/' + data).set(completedTicket);
+				firebase.database().ref('openIssues/' + data).remove();	
+			})
+			this.router.navigate(['/ticket']);
+			} else if (close == false && this.ticket.id == firebase.auth().currentUser.uid) {
+			let updateTicket = {
+				studentName: form.value.studentName,
+				desc: form.value.desc,
+				location: form.value.location,
+				suggestedSolution: form.value.suggestedSolution,
+				updateTime: Date()
+			}
+		this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+			firebase.database().ref('openIssues/' + data).update(updateTicket);
+		})
+		this.router.navigate(['/ticket']);
+		} else {
+			alert("You are not authorized to change this ticket!!!");
+			this.router.navigate(['/ticket']);
 		}
-	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
-		firebase.database().ref('openIssues/' + data).update(updateTicket);
-	})
-	this.router.navigate(['/history']);
-	this.router.navigate(['/ticket']);
-  }
-
+	}
   cancel() {
   	this.router.navigate(['/ticket']);
   }
 
   delete() {
-	this.ticketService.getPostID("openIssues", this.id).then(function(data) {
+	this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 		firebase.database().ref('openIssues/' + data).remove();	
 	})
-		this.ticketService.updateOpenTickets(this.id);
+		this.ticketService.updateOpenTickets(this.index);
   	this.router.navigate(['/ticket']);
-  }
+	}
 
 }

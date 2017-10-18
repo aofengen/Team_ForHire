@@ -6,5 +6,7 @@ export class OpenTickets {
 		public category: string,
 		public instructor: string,
 		public location: string,
-		public time: string) {}
+		public time: string,
+		public id: string
+	) {}
 }

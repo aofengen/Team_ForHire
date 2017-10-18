@@ -14,7 +14,6 @@ import { OpenTicketService } from '../services/opentickets.service';
 export class SdetailComponent implements OnInit {
   @Input() ticket: OpenTickets;
 	@Input() index: number;
-  id: number;
 	studentName: string;
 	desc: string;
 	location: string;
@@ -35,8 +34,8 @@ export class SdetailComponent implements OnInit {
  		this.route.params
       .subscribe(
           (params: Params) => {
-			  this.id = +params['id'];
-			  this.ticket = this.ticketService.getOpenTicket(this.id);
+			  this.index = +params['id'];
+			  this.ticket = this.ticketService.getOpenTicket(this.index);
 			  this.showDetails(this.ticket);
 		  }) 
   }

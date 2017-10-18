@@ -40,13 +40,13 @@
 				<input class="form-control" id="createTime" name="createTime" [(ngModel)]="createTime" disabled>
 			</div>
 			<div class="form-group col-md-4">
-				<label>Ticket Updated At:</label>
-				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
+				<label>Ticket Finished At:</label>
+				<input class="form-control" id="finishTime" name="finishTime" [(ngModel)]="finishTime" disabled>
       </div>
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
 			  <label>Time Spent to Solve:</label>
 			  <input type="text" name="timeSpent" [(ngModel)]="timeSpent" class="form-control" disabled>
-			</div>
+			</div> -->
 			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>
 		</div>
 	</form>
