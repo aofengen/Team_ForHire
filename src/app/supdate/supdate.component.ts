@@ -5,7 +5,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { OpenTickets } from '../shared/opentickets.model';
 import { OpenTicketService } from '../services/opentickets.service';
-import { SHomeComponent } from '../shome/shome.component';
 
 
 @Component({
@@ -30,8 +29,7 @@ export class SupdateComponent implements OnInit {
   constructor(private router: Router,
   						private route: ActivatedRoute,
 						private ticketService: OpenTicketService,
-						private createTicketService: CreateTicketService,
-						private sHome: SHomeComponent
+						private createTicketService: CreateTicketService
   						) {}
 
   ngOnInit() {
