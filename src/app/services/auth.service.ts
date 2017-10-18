@@ -47,7 +47,7 @@ export class AuthService {
   				(token: string) => this.token = token
 			  )
   		})
-  	.catch(error => console.log(error))
+  	.catch(error => alert(error))
 	}
 
 	logout() {
