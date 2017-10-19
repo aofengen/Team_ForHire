@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-create-ticket',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class CreateTicketComponent implements OnInit {
   private categories = [];
 
-  constructor(private createTicketService: CreateTicketService, private router: Router) { }
+  constructor(private createTicketService: CreateTicketService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.getCategories();
@@ -35,5 +36,8 @@ export class CreateTicketComponent implements OnInit {
   getCategories() {
     this.categories = this.createTicketService.getCategories();
     return this.categories
+
+  isAdmin() {
+    this.authService.isAdmin()
   }
 }

@@ -5,7 +5,7 @@
     <a routerLink="/create" routerLinkActive="active">Create Request</a>
     <a routerLink="/ticket" routerLinkActive="active">Open Requests</a>
     <a routerLink="/history" routerLinkActive="active">Solved Requests</a>
-    <a routerLink="/admin/ticket" routerLinkActive="active">Admin Portal</a>
+    <a (click)="isAdmin()">Admin Portal</a>
     <a routerLink="/" routerLinkActive="active" (click)="logout()">Logout</a>
   </div>
   <div class="clear"></div>
