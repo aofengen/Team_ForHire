@@ -10,10 +10,12 @@ import { AuthService } from '../services/auth.service'
   styleUrls: ['./create-ticket.component.css']
 })
 export class CreateTicketComponent implements OnInit {
+  private categories = [];
 
   constructor(private createTicketService: CreateTicketService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    this.getCategories();
   }
 
   createTicket(form: NgForm) {
@@ -30,6 +32,10 @@ export class CreateTicketComponent implements OnInit {
   cancel() {
   	this.router.navigate(['ticket']);
   }
+
+  getCategories() {
+    this.categories = this.createTicketService.getCategories();
+    return this.categories
 
   isAdmin() {
     this.authService.isAdmin()
