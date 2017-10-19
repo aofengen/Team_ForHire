@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { NgsRevealConfig } from 'ng-scrollreveal';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+
+  title = 'HELP!!!';
+
+  constructor() {}
 
   ngOnInit() {
   	firebase.initializeApp({
@@ -16,4 +20,6 @@ export class AppComponent implements OnInit {
 	    databaseURL: "https://help-me-queue.firebaseio.com"
   	});
   }
+
+
 }

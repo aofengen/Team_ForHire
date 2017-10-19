@@ -1,3 +1,23 @@
-<p>
-  ahome works!
-</p>
+<app-adminheader></app-adminheader>
+<div class="container">
+		<div class="row">
+			<br>
+			<br>
+			<div class="col-sm-11">
+				<h2>Current Issues</h2>
+			</div>
+			<br>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3"></div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<app-aupdate-item class="col-sm-11 sIssue" *ngFor="let ticket of tickets; let i = index"
+			[ticket]="ticket"
+			[index]="i">
+			</app-aupdate-item>
+		</div>
+		<br>
+		<br>
+	</div>

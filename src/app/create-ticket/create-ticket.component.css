@@ -1,0 +1,12 @@
+.container {
+    clear: both;
+    margin-top: 100px;
+}
+.btn-success {
+    background-color: #595594 !important;
+    border: 1px solid #595594 !important;
+}
+.btn-danger {
+    background-color: #1D1959 !important;
+    border: 1px solid #1D1959 !important;
+}
