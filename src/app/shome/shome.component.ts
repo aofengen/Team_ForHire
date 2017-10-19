@@ -21,5 +21,4 @@ tickets: OpenTickets[];
       }
     );
   }
-
 }

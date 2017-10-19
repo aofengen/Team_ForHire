@@ -26,7 +26,15 @@ export class SignupModalComponent implements OnInit {
       alert("Please enter a longer password! Must be at least 6 characters.");
 
     } else {
-
+      let newUser = {
+        email: email,
+          name: name,
+          username: username,
+          isAdmin: false
+      }
+      let newUserKey = firebase.database().ref().child('users').push().key;
+      firebase.database().ref('users/' + newUserKey).set(newUser);
+      
       this.authService.newUser(name, email.trim(), username, password.trim());
       this.activeModal.close('Close click');
     }
