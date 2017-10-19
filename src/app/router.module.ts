@@ -29,4 +29,5 @@ export const routes = [
     { path: 'admin/ticket/detail/:id', component: AdetailComponent, canActivate: [AuthGuard] },
     { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] },
     { path: 'admin/history/:id', component: AdminhistoryDetailComponent, canActivate: [AuthGuard] },
+    { path: '**', redirectTo: '/', pathMatch: 'full'}
 ]
