@@ -16,8 +16,9 @@
 			</div>
 			<div class="form-group col-md-4">
 			  <label for="inputCategory" class="col-form-label"><b>Category</b></label>
-			  <!-- <select #category class="form-control" NgModel></select> -->
-			  <input type="text" id="category" name="category" ngModel class="form-control" />
+			  <select class="form-control" id="category" name="category" ngModel>
+			  	<option *ngFor="let category of categories" ng-selected="true" value="{{category}}">{{category}}</option>
+			  </select>
 			</div>
 			<div class="form-group col-md-4">
 			  <label for="inputLocation" class="col-form-label"><b>Location</b></label>

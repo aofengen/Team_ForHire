@@ -14,11 +14,11 @@ tickets: OpenTickets[];
 
   ngOnInit() {
     this.tickets = this.ticketService.getOpenTickets();
-    this.ticketService.openTicketsChanged
-    .subscribe(
-      (tickets: OpenTickets[]) => {
-      this.tickets = tickets;
-      }
-    );
+    // this.ticketService.openTicketsChanged
+    // .subscribe(
+    //   (tickets: OpenTickets[]) => {
+    //   this.tickets = tickets;
+    //   }
+    // );
   }
 }
