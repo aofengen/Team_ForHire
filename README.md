@@ -1,6 +1,6 @@
 # Queue Application
 
-### by Team For Hire
+### by Team For Hire: Aaron Ofengender, Devon Brosch, Kaylea Britton
 
 The Queue Application is a ticket queue system website using [Angular 4](https://angular.io/) and [Firebase](https://firebase.google.com/).
 
