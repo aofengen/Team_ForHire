@@ -1,0 +1,23 @@
+<app-adminheader></app-adminheader>
+<div class="container">
+	<div class="row">
+		<br>
+		<br>
+		<div class="col-sm-11">
+			<h2>Solved Issues</h2>
+		</div>
+		<br>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<app-history-item class="col-sm-11 sIssue" *ngFor="let solvedTicket of solvedTickets; let i = index"
+		[solvedTicket]="solvedTicket"
+		[index]="i">
+		</app-history-item>
+	</div>
+	<br>
+	<br>
+</div>
