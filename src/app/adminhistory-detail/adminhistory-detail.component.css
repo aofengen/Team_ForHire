@@ -1,0 +1,12 @@
+.container {
+    clear: both;
+    margin-top: 100px;
+}
+.btns {
+    margin: 5px;
+}
+.btn-default {
+    background-color: #1D1959 !important;
+    border: 1px solid #1D1959 !important;
+    color: #fff !important;
+}

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { SignupModalComponent } from '../signup-modal/signup-modal.component';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { NgsRevealModule } from 'ng-scrollreveal';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
+  signup() {
+  	this.modalService.open(SignupModalComponent);
+  }
+
+  login() {
+  	this.modalService.open(LoginModalComponent);
+  }
 }

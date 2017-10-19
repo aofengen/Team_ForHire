@@ -1,0 +1,16 @@
+<div class="row ticRow">
+  <div class="tickHead">
+      <h4><strong>Name:</strong>{{solvedTicket.studentName}}</h4>
+      <h4><strong>Category:</strong>{{solvedTicket.category}}</h4>
+      <h4><strong>Issue:</strong>{{solvedTicket.desc}}</h4>
+      <h4><strong>Solved By:</strong>{{solvedTicket.solvedBy}}</h4>
+  </div>
+  <div class="tickButton">
+      <button class="details btn-success"
+      style="cursor: pointer;"
+      [routerLink]="[index]"
+      routerLinkActive="active">
+      Ticket Details</button>
+  </div>
+</div>
+<br>

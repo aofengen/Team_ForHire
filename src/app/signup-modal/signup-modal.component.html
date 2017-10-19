@@ -1,0 +1,23 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<button class="close" type="button" (click)="activeModal.close('Close click')" aria-label="Close">
+		<span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">Sign Up</h4>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<label>Name:</label>
+			<input type="text" #name class="form-control" required />
+			<label>Email:</label>
+			<input type="text" #email class="form-control" required />
+			<label>Username:</label>
+			<input type="text" #username class="form-control" required />
+			<label>Password:</label>
+			<input type="password" #password class="form-control" required />
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
+		<button type="button" class="btn btn-primary" (click)="onSignup(name.value, email.value, username.value, password.value)">Signup</button>
+	</div>
+</div>
