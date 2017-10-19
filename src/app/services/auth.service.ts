@@ -79,17 +79,32 @@ export class AuthService {
 		let userID = firebase.auth().currentUser.uid;
 		userID.update({isAdmin: true});
 	}*/
-		
+
 	isAdmin() {
+		let that = this;
 		this.getUserID(firebase.auth().currentUser.email).then(function(data) {
-			let admin = firebase.database().ref('users/' + data + "/isAdmin");
-			return admin.once("value").then(function(snapshot) {
+			let admin = firebase.database().ref('users/' + data + "/isAdmin");	
+			admin.once("value").then(function(snapshot) {
 				let x = snapshot.val();
-				console.log(typeof(x))
-				return x;
+				if (x === true) {
+					that.router.navigate(['/admin/ticket']);
+				} else {
+					alert("You are not authorized to view the admin portal.");
+					that.router.navigate(['/ticket']);
+				}
 			})
 		}
 	)}
+		
+	// isAdmin() {
+	// 	return this.getUserID(firebase.auth().currentUser.email).then(function(data) {
+	// 		let admin = firebase.database().ref('users/' + data + "/isAdmin");	
+	// 		return admin.once("value").then(function(snapshot) {
+	// 			let x= snapshot.val();
+	// 			return x;
+	// 		})
+	// 	}
+	// )}
 
 
 	getUserID(email: string) {
