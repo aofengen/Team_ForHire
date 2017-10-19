@@ -3,10 +3,12 @@
 // import { Injectable } from '@angular/core';
 
 // @Injectable()
-// export class AdminGuard  {
-// 	// constructor(private authService: AuthService) {}
+// export class AdminGuard implements CanActivate {
+// 	constructor(private authService: AuthService) {}
 
-// 	// canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-// 	// 	return this.authService.isAdmin();	
-// 	// }
+// 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+// 		this.authService.isAdmin().then(function(data) {
+// 			return data;	
+// 		})
+// 	}
 // }
