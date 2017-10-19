@@ -19,11 +19,20 @@ export class AuthService {
   		alert(errCode + ' - ' + errorMessage);
   	})
   	.then(
-  		response => {	
+  		response => {
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
-  			)
+			)
+			 let newUser = {
+				email: email,
+				  name: name,
+				  username: username,
+				  isAdmin: false
+			  }
+			let newUserKey = firebase.database().ref().child('users').push().key;
+			firebase.database().ref('users/' + newUserKey).set(newUser);
+			this.router.navigate(['/ticket']);	
   		})
 	.catch(error => console.log(error))
 	}
@@ -32,11 +41,11 @@ export class AuthService {
 		firebase.auth().signInWithEmailAndPassword(email, password)
   	.then(
   		response => {	
-  			this.router.navigate(['/ticket']);
   			firebase.auth().currentUser.getIdToken()
   			.then(
   				(token: string) => this.token = token
 			  )
+			this.router.navigate(['/ticket']);
   		})
   	.catch(error => alert(error))
 	}
