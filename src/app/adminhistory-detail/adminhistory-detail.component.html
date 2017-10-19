@@ -12,39 +12,39 @@
 	<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 	  <div class="form-row">
 			<div class="form-group col-md-4">
-			  <label class="col-form-label">Name</label>
+			  <label class="col-form-label"><b>Name</b></label>
 			  <input type="text" class="form-control" name="studentName" [(ngModel)]="studentName" disabled>
 			</div>
 	  </div>
 	  <div class="form-group">
-			<label>Description</label>
+			<label><b>Description</b></label>
 			<textarea class="form-control" name="desc" rows="3" [(ngModel)]="desc" disabled></textarea>
 		</div>
 	  <div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Solution</label>
+				<label><b>Solution</b></label>
 				<textarea class="form-control" name="solution" rows="6" [(ngModel)]="solution" disabled></textarea>
       </div>
 			<div class="form-group col-md-3">
-			  <label>Category</label>
+			  <label><b>Category</b></label>
 			  <input type="text" name="category" [(ngModel)]="category" class="form-control" rows="1" disabled>
 			</div>
 			<div class="form-group col-md-3">
-				<label>Solved By:</label>
+				<label><b>Solved By:</b></label>
 				<input type="text" name="solvedBy" [(ngModel)]="solvedBy" class="form-control" rows="1" disabled>
 		  </div>
 		</div>
 	  <div class="form-row">
 			<div class="form-group col-md-4">
-				<label>Ticket Created At:</label>
+				<label><b>Ticket Created At:</b></label>
 				<input class="form-control" id="createTime" name="createTime" [(ngModel)]="createTime" disabled>
 			</div>
 			<div class="form-group col-md-4">
-				<label>Ticket Updated At:</label>
+				<label><b>Ticket Updated At:</b></label>
 				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
       </div>
       <div class="form-group col-md-4">
-			  <label>Time Spent to Solve:</label>
+			  <label><b>Time Spent to Solve:</b></label>
 			  <input type="text" name="timeSpent" [(ngModel)]="timeSpent" class="form-control" disabled>
 			</div>
 			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>

@@ -71,9 +71,9 @@ export class SupdateComponent implements OnInit {
 			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 				firebase.database().ref('history/' + data).set(completedTicket);
 				firebase.database().ref('openIssues/' + data).remove();	
+				this.router.navigate(['/ticket']);
 			})
-			this.router.navigate(['/ticket']);
-			} else if (close == false && this.ticket.id == firebase.auth().currentUser.uid) {
+		} else if (close == false && this.ticket.id == firebase.auth().currentUser.uid) {
 			let updateTicket = {
 				studentName: form.value.studentName,
 				desc: form.value.desc,
@@ -83,8 +83,8 @@ export class SupdateComponent implements OnInit {
 			}
 		this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 			firebase.database().ref('openIssues/' + data).update(updateTicket);
+			this.router.navigate(['/ticket']);
 		})
-		this.router.navigate(['/ticket']);
 		} else {
 			alert("You are not authorized to change this ticket!!!");
 			this.router.navigate(['/ticket']);
@@ -97,9 +97,7 @@ export class SupdateComponent implements OnInit {
   delete() {
 	this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 		firebase.database().ref('openIssues/' + data).remove();	
+		this.router.navigate(['/ticket']);
 	})
-		this.ticketService.updateOpenTickets(this.index);
-  	this.router.navigate(['/ticket']);
 	}
-
 }

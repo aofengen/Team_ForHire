@@ -6,5 +6,6 @@ export class HistoryModel {
 		public description: string, 
 		public issueSolved: boolean,
 		public solvedBy: string,
-		public time: string) {}
+		public createTime: string,
+		public finishTime: string) {}
 }

@@ -69,9 +69,10 @@ export class AupdateComponent implements OnInit {
 			}
 			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 				firebase.database().ref('history/' + data).set(completedTicket);
-				firebase.database().ref('openIssues/' + data).remove();	
+				firebase.database().ref('openIssues/' + data).remove();
+				this.router.navigate(['/admin/ticket']);
 			})
-			this.router.navigate(['/ticket']);
+
 			} else {
 			let updateTicket = {
 				studentName: form.value.studentName,
@@ -82,8 +83,8 @@ export class AupdateComponent implements OnInit {
 			}
 		this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 			firebase.database().ref('openIssues/' + data).update(updateTicket);
+			this.router.navigate(['/admin/ticket']);
 		})
-		this.router.navigate(['/admin/ticket']);
 		}
 	}
 
@@ -93,9 +94,8 @@ export class AupdateComponent implements OnInit {
 
   delete() {
 	this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-		firebase.database().ref('openIssues/' + data).remove();	
-	})
-  	this.router.navigate(['admin/ticket']);
+		firebase.database().ref('openIssues/' + data).remove();
+		this.router.navigate(['admin/ticket']);
+	})	
   }
-
 }
