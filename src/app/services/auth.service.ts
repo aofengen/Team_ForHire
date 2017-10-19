@@ -26,15 +26,7 @@ export class AuthService {
   				(token: string) => this.token = token
   			)
   		})
-  	.catch(error => console.log(error))
-		let User = firebase.database().ref('users/');
-		let newUser = User.push()
-  	newUser.set({
-  		email: email,
-	    name: name,
-	    username: username,
-	    isAdmin: false
-	  })
+	.catch(error => console.log(error))
 	}
 
 	loginUser(email:string, password: string) {
@@ -86,12 +78,32 @@ export class AuthService {
 	promoteAdmin() {
 		let userID = firebase.auth().currentUser.uid;
 		userID.update({isAdmin: true});
-	}
+	}*/
 		
 	isAdmin() {
-		let userID = firebase.auth().currentUser.uid;
-		let admin = firebase.database().ref('users/' + userID); 
-		console.log(admin.isAdmin);
+		this.getUserID(firebase.auth().currentUser.email).then(function(data) {
+			let admin = firebase.database().ref('users/' + data + "/isAdmin");
+			return admin.once("value").then(function(snapshot) {
+				let x = snapshot.val();
+				console.log(typeof(x))
+				return x;
+			})
+		}
+	)}
+
+
+	getUserID(email: string) {
+		let ticketList;
+		let openIssuesRef = firebase.database().ref('users');
+		return openIssuesRef.once('value').then(function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				let key = childSnapshot.key;
+				let childData = childSnapshot.val();
+				if (childData.email == email) {
+					ticketList = key;
+				}
+				})
+			return ticketList
+		}) 	
 	}
-	*/
 }

@@ -4,9 +4,9 @@
 
 // @Injectable()
 // export class AdminGuard  {
-// 	constructor(private authService: AuthService) {}
+// 	// constructor(private authService: AuthService) {}
 
 // 	// canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-	// 	return this.authService.isAdmin();	
-	//}
-//}
+// 	// 	return this.authService.isAdmin();	
+// 	// }
+// }

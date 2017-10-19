@@ -54,25 +54,30 @@ export class SupdateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+		let thisComponent = this;
 		let close = confirm("Have you solved the issue?");
 		if (close == true && this.ticket.id == firebase.auth().currentUser.uid) {
 			let solvedBy = prompt("Who solved the issue?");
 			let solution = prompt("How was the problem solved?");
-			let completedTicket = {
-				studentName: form.value.studentName,
-				desc: form.value.desc,
-				category: this.category,
-				solution: solution,
-				solvedBy: solvedBy,
-				createTime: this.createTime,
-				finishTime: Date(),
-				issueSolved: true
+			if (solvedBy.trim() === "" || solution.trim() === "") {
+				alert("Please fill out both prompts!");
+			} else {
+				let completedTicket = {
+					studentName: form.value.studentName,
+					desc: form.value.desc,
+					category: this.category,
+					solution: solution,
+					solvedBy: solvedBy,
+					createTime: this.createTime,
+					finishTime: Date(),
+					issueSolved: true
+				}
+				this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+					firebase.database().ref('history/' + data).set(completedTicket);
+					firebase.database().ref('openIssues/' + data).remove();	
+					thisComponent.router.navigate(['/ticket']);
+				})
 			}
-			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-				firebase.database().ref('history/' + data).set(completedTicket);
-				firebase.database().ref('openIssues/' + data).remove();	
-				this.router.navigate(['/ticket']);
-			})
 		} else if (close == false && this.ticket.id == firebase.auth().currentUser.uid) {
 			let updateTicket = {
 				studentName: form.value.studentName,
@@ -81,10 +86,10 @@ export class SupdateComponent implements OnInit {
 				suggestedSolution: form.value.suggestedSolution,
 				updateTime: Date()
 			}
-		this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-			firebase.database().ref('openIssues/' + data).update(updateTicket);
-			this.router.navigate(['/ticket']);
-		})
+			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+				firebase.database().ref('openIssues/' + data).update(updateTicket);
+				thisComponent.router.navigate(['/ticket']);
+			})
 		} else {
 			alert("You are not authorized to change this ticket!!!");
 			this.router.navigate(['/ticket']);
@@ -95,9 +100,10 @@ export class SupdateComponent implements OnInit {
   }
 
   delete() {
+	let thisComponent = this;
 	this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 		firebase.database().ref('openIssues/' + data).remove();	
-		this.router.navigate(['/ticket']);
+		thisComponent.router.navigate(['/ticket']);
 	})
 	}
 }
