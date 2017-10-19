@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-create-ticket',
@@ -11,7 +10,7 @@ import { AuthService } from '../services/auth.service'
 })
 export class CreateTicketComponent implements OnInit {
 
-  constructor(private createTicketService: CreateTicketService, private router: Router, private authService: AuthService) { }
+  constructor(private createTicketService: CreateTicketService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,9 +28,5 @@ export class CreateTicketComponent implements OnInit {
 
   cancel() {
   	this.router.navigate(['ticket']);
-  }
-
-  isAdmin() {
-    this.authService.isAdmin()
   }
 }
