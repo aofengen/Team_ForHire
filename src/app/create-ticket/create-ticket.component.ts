@@ -37,3 +37,4 @@ export class CreateTicketComponent implements OnInit {
     return this.categories
   }
 }
+
