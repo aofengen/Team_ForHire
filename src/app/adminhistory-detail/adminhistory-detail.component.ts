@@ -44,10 +44,10 @@ export class AdminhistoryDetailComponent implements OnInit {
     this.desc = data.desc;
     this.timeSpent = data.timeSpent;
     this.category = data.category;
-      this.solvedBy = data.solvedBy;
-     this.solution = data.solution;
-     this.createTime = data.createTime;	
-    this.finishTime = data.finishTime;
+    this.solvedBy = data.solvedBy;
+    this.solution = data.solution;
+    this.createTime = data.createTime.slice(0,data.createTime.indexOf('G'));	
+    this.finishTime = data.finishTime.slice(0,data.finishTime.indexOf('G'));
     }
 
   cancel() {
