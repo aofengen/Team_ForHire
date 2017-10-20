@@ -55,7 +55,7 @@ export class SupdateComponent implements OnInit {
 
   onSubmit(form: NgForm) {
 		let thisComponent = this;
-		let close = confirm("Have you solved the issue?");
+		let close = confirm("Issue Solved?\nOk - update and close ticket.\nCancel - update and leave open.");
 		if (close == true && this.ticket.id == firebase.auth().currentUser.uid) {
 			let solvedBy = prompt("Who solved the issue?");
 			let solution = prompt("How was the problem solved?");

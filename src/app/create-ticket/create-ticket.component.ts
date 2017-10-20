@@ -35,4 +35,5 @@ export class CreateTicketComponent implements OnInit {
   getCategories() {
     this.categories = this.createTicketService.getCategories();
     return this.categories
+  }
 }
