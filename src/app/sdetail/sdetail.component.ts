@@ -45,10 +45,10 @@ export class SdetailComponent implements OnInit {
     this.desc = data.desc;
     this.location = data.location;
     this.category = data.category;
-      this.instructor = data.instructor;
-     this.suggestedSolution = data.suggestedSolution;
-     this.createTime = data.createTime;	
-    this.updateTime = data.updateTime;
+    this.instructor = data.instructor;
+    this.suggestedSolution = data.suggestedSolution;
+    this.createTime = data.createTime.slice(0,data.createTime.indexOf('G'));	
+    this.updateTime = data.updateTime.slice(0,data.updateTime.indexOf('G'));
     }
 
   cancel() {

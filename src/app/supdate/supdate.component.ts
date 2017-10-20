@@ -49,8 +49,8 @@ export class SupdateComponent implements OnInit {
 	this.category = data.category;
     this.instructor = data.instructor;
  	this.suggestedSolution = data.suggestedSolution;
- 	this.createTime = data.createTime;	
-	this.updateTime = data.updateTime;
+ 	this.createTime = data.createTime.slice(0,data.createTime.indexOf('G'));	
+	this.updateTime = data.updateTime.slice(0,data.updateTime.indexOf('G'));
   }
 
   onSubmit(form: NgForm) {
