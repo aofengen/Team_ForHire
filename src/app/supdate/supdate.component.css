@@ -22,3 +22,13 @@
     background-color: #827FB2 !important;
     border: 1px solid #827FB2 !important;
 }
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.btn[disabled] {
+    cursor: not-allowed;
+}

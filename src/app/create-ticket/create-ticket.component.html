@@ -12,28 +12,51 @@
 	  <div class="form-row">
 			<div class="form-group col-md-4">
 			  <label for="inputName" class="col-form-label"><b>Name</b></label>
-			  <input type="text" class="form-control" id="name" name="name" ngModel>
+			  <input 
+			  type="text" 
+			  class="form-control" 
+			  id="name" 
+			  name="name" 
+			  ngModel 
+			  required>
 			</div>
 			<div class="form-group col-md-4">
 			  <label for="inputCategory" class="col-form-label"><b>Category</b></label>
-			  <select class="form-control" id="category" name="category" ngModel>
+			  <select 
+			  class="form-control" 
+			  id="category" 
+			  name="category" 
+			  ngModel 
+			  required>
 			  	<option *ngFor="let category of categories" ng-selected="true" value="{{category}}">{{category}}</option>
 			  </select>
 			</div>
 			<div class="form-group col-md-4">
 			  <label for="inputLocation" class="col-form-label"><b>Location</b></label>
-			  <input type="text" id="location" name="location" ngModel class="form-control" >
+			  <input 
+			  class="form-control"
+			  type="text" 
+			  id="location" 
+			  name="location" 
+			  ngModel 
+			  required>
 			</div>
 	  </div>
 	  <div class="form-group">
 			<label for="descriptionTextArea"><b>Description</b></label>
-			<textarea class="form-control" id="desc" name="desc" rows="6" ngModel></textarea>
+			<textarea 
+			class="form-control" 
+			id="desc" 
+			name="desc" 
+			rows="6" 
+			ngModel 
+			required></textarea>
 		</div>
 		<div class="form-row">
-				<div>
-						<button type="submit" class="btn btn-success">Submit</button>
-						<button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
-					</div>
+			<div>
+				<button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
+				<button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+			</div>
 		</div>
 	</form>
 </div>
