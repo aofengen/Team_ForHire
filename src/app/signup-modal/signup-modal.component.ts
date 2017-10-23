@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm, FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
@@ -16,19 +17,21 @@ export class SignupModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSignup(name: string, email: string, username: string, password: string) {
-
-    if (name === "" || email.trim()==="" || username==="" || password.trim()==="")
-    {
+  onSignup(form: NgForm) {
+    const studentName = form.value.studentName;
+    const email = form.value.email;
+    const username = form.value.username;
+    const password = form.value.password;
+    
+    if (studentName === "" || email.trim()==="" || username==="" || password.trim()===""){
       alert("Please enter all fields!");
-
-    }if (password.length < 6) {
-
-      alert("Please enter a longer password! Must be at least 6 characters.");
-
     } else {
-      this.authService.newUser(name, email.trim(), username, password.trim());
-      this.activeModal.close('Close click');
+      if (password.length < 6) {
+        alert("Please enter a longer password! Must be at least 6 characters.");
+      } else {
+        this.authService.newUser(studentName, email.trim(), username, password.trim());
+        this.activeModal.close('Close click');
+      }
     }
   }
 }
