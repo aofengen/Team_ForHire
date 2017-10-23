@@ -4,20 +4,20 @@
 		<span aria-hidden="true">&times;</span></button>
 		<h4 class="modal-title">Sign Up</h4>
 	</div>
-	<div class="modal-body">
+	<form (ngSubmit)="onSignup(f)" #f="ngForm" class="modal-body">
 		<div class="form-group">
 			<label>Name:</label>
-			<input type="text" #name class="form-control" required />
+			<input type="text" name="studentName" id="studentName" ngModel class="form-control" required />
 			<label>Email:</label>
-			<input type="text" #email class="form-control" required />
+			<input type="text" id="email" name="email" ngModel class="form-control" required />
 			<label>Username:</label>
-			<input type="text" #username class="form-control" required />
+			<input type="text" id="username" name="username" ngModel class="form-control" required />
 			<label>Password:</label>
-			<input type="password" #password class="form-control" required />
+			<input type="password" id="password" name="password" ngModel class="form-control" required />
 		</div>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
-		<button type="button" class="btn btn-primary" (click)="onSignup(name.value, email.value, username.value, password.value)">Signup</button>
-	</div>
+		<div class="modal-footer">
+			<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
+			<button type="submit" class="btn btn-primary">Signup</button>
+		</div>
+	</form>
 </div>
