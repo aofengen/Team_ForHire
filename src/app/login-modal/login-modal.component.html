@@ -4,16 +4,28 @@
 		<span aria-hidden="true">&times;</span></button>
 		<h4 class="modal-title">Login</h4>
 	</div>
-	<div class="modal-body">
-		<div class="alert alert-danger" style="display:none;" role="alert" id="li_error"></div>
-		<label for="li_username">Email:</label>
-		<input class="form-control" #email />
-		<br>
-		<label for="li_password">Password:</label>
-		<input type="password" class="form-control" #password />
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" (click)="activeModal.close('Close click')">Cancel</button>
-		<button class="but btn-primary" type="button" (click)="onLogin(email.value, password.value)">Login</button>
-	</div>
+	<form class="modal-body" (ngSubmit)="onLogin(f)" #f="ngForm">
+		<div class="form-group">
+			<label>Email:</label>
+			<input 
+			class="form-control" 
+			name="email" 
+			ngModel
+			required 
+			email/>
+			<br>
+			<label>Password:</label>
+			<input 
+			type="password" 
+			class="form-control" 
+			name="password" 
+			ngModel
+			required 
+			password/>
+		</div>	
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" (click)="activeModal.close('Close click')">Cancel</button>
+			<button class="btn btn-primary" type="submit" [disabled]="!f.valid">Login</button>
+		</div>
+	</form>
 </div>

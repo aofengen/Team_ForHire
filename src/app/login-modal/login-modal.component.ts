@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm, FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
 
@@ -15,9 +16,12 @@ export class LoginModalComponent implements OnInit {
   constructor(private authService: AuthService, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
+    
   }
 
-  onLogin(email: string, password: string) {
+  onLogin(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
     if (email.trim()==="" || password.trim()==="") {
       alert("Please enter all fields!");
     } else {
