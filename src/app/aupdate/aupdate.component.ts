@@ -62,8 +62,8 @@ export class AupdateComponent implements OnInit {
 				alert("Please fill out both prompts!");
 			} else {
 				let completedTicket = {
-					studentName: form.value.studentName,
-					desc: form.value.desc,
+					studentName: this.studentName,
+					desc: this.desc,
 					category: this.category,
 					solution: solution,
 					solvedBy: solvedBy,
@@ -79,9 +79,9 @@ export class AupdateComponent implements OnInit {
 			}
 			} else {
 				let updateTicket = {
-					studentName: form.value.studentName,
-					desc: form.value.desc,
-					location: form.value.location,
+					studentName: this.studentName,
+					desc: this.desc,
+					location: this.location,
 					suggestedSolution: form.value.suggestedSolution,
 					updateTime: Date()
 			}
