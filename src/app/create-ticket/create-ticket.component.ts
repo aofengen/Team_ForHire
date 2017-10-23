@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-ticket.component.css']
 })
 export class CreateTicketComponent implements OnInit {
+
   private categories = [];
 
   constructor(private createTicketService: CreateTicketService, private router: Router) { }
