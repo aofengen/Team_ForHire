@@ -51,7 +51,7 @@ export class AdminhistoryDetailComponent implements OnInit {
     }
 
   cancel() {
-  	this.router.navigate(['/history']);
+  	this.router.navigate(['/admin/history']);
   }
 
 }
