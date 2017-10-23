@@ -7,17 +7,43 @@
 	<form (ngSubmit)="onSignup(f)" #f="ngForm" class="modal-body">
 		<div class="form-group">
 			<label>Name:</label>
-			<input type="text" name="studentName" id="studentName" ngModel class="form-control" required />
+			<input 
+			type="text" 
+			name="studentName" 
+			id="studentName" 
+			ngModel 
+			class="form-control" 
+			required />
 			<label>Email:</label>
-			<input type="text" id="email" name="email" ngModel class="form-control" required />
+			<input 
+			type="text" 
+			id="email" 
+			name="email" 
+			ngModel 
+			class="form-control" 
+			required
+			email />
 			<label>Username:</label>
-			<input type="text" id="username" name="username" ngModel class="form-control" required />
+			<input 
+			type="text" 
+			id="username" 
+			name="username" 
+			ngModel 
+			class="form-control" 
+			required />
 			<label>Password:</label>
-			<input type="password" id="password" name="password" ngModel class="form-control" required />
+			<input 
+			type="password" 
+			id="password" 
+			name="password" 
+			ngModel 
+			class="form-control" 
+			required 
+			password/>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-default" type="button" (click)="activeModal.close('Close click')">Cancel</button>
-			<button type="submit" class="btn btn-primary">Signup</button>
+			<button type="submit" class="btn btn-primary" [disabled]="!f.valid">Signup</button>
 		</div>
 	</form>
 </div>

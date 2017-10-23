@@ -16,6 +16,7 @@ export class LoginModalComponent implements OnInit {
   constructor(private authService: AuthService, public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
+    
   }
 
   onLogin(form: NgForm) {
