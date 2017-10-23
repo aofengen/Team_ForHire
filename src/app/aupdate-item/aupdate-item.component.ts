@@ -22,10 +22,15 @@ export class AupdateItemComponent implements OnInit {
   }
 
   claimTicket() {
+    let that = this;
     let instructorName = prompt("Enter your name:");
-    this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-      firebase.database().ref('openIssues/' + data).update({'instructor': instructorName});
-      this.router.navigate(['admin/ticket']);
-    })
+    if (instructorName === null) {
+      this.router.navigate(['admin/ticket'])
+    } else {
+      this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+        firebase.database().ref('openIssues/' + data).update({'instructor': instructorName});
+        that.router.navigate(['admin/ticket/'+ that.index]);
+      }) 
+    } 
   }
 }

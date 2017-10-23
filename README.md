@@ -12,7 +12,7 @@ Instructors can view the student and admin ticket queue and history of tickets, 
 
 ## View a deployed version
 
-See a [deployed version]().
+See a [deployed version](https://help-me-queue.firebaseapp.com/).
 
 ## View user manual
 
