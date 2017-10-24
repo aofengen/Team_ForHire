@@ -1,6 +1,9 @@
 <div class="bar">
-  <h1>{{title}}</h1>
-  <h2 *ngFor="let users of userInfo"> Welcome! {{ users.name }}</h2>
+  <div class="logo">
+      <img src="./assets/rsz_efalogo.png" />
+      <h1>{{title}}</h1>
+      <h2 *ngFor="let users of userInfo"> Welcome, {{ users.name }}!</h2>
+  </div>
   <div class="navigation" role="navigation">
     <a routerLink="/admin/ticket" routerLinkActive="active">Open Requests</a>
     <a routerLink="/admin/history" routerLinkActive="active">Solved Requests</a>

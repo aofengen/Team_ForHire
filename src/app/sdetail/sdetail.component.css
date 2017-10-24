@@ -6,19 +6,15 @@
     margin: 5px;
 }
 .btn-default {
-    background-color: #1D1959 !important;
-    border: 1px solid #1D1959 !important;
+    background-color: #414950 !important;
+    border: 1px solid #414950 !important;
     color: #fff !important;
 }
 .btn-success {
-    background-color: #595594 !important;
-    border: 1px solid #595594 !important;
+    background-color: #9F363B !important;
+    border: 1px solid #9F363B !important;
 }
 .btn-danger {
-    background-color: #0B083B !important;
-    border: 1px solid #0B083B !important;
-}
-.btn-primary {
-    background-color: #827FB2 !important;
-    border: 1px solid #827FB2 !important;
+    background-color: #520307 !important;
+    border: 1px solid #520307 !important;
 }
