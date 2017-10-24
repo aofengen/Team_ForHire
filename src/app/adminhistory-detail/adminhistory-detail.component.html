@@ -15,6 +15,14 @@
 			  <label class="col-form-label"><b>Name</b></label>
 			  <input type="text" class="form-control" name="studentName" [(ngModel)]="studentName" disabled>
 			</div>
+			<div class="form-group col-md-4">
+			  <label><b>Category</b></label>
+			  <input type="text" name="category" [(ngModel)]="category" class="form-control" rows="1" disabled>
+			</div>
+			<div class="form-group col-md-4">
+				<label><b>Solved By:</b></label>
+				<input type="text" name="solvedBy" [(ngModel)]="solvedBy" class="form-control" rows="1" disabled>
+		  </div>
 	  </div>
 	  <div class="form-group">
 			<label><b>Description</b></label>
@@ -26,27 +34,19 @@
 				<textarea class="form-control" name="solution" rows="6" [(ngModel)]="solution" disabled></textarea>
       </div>
 			<div class="form-group col-md-3">
-			  <label><b>Category</b></label>
-			  <input type="text" name="category" [(ngModel)]="category" class="form-control" rows="1" disabled>
-			</div>
-			<div class="form-group col-md-3">
-				<label><b>Solved By:</b></label>
-				<input type="text" name="solvedBy" [(ngModel)]="solvedBy" class="form-control" rows="1" disabled>
-		  </div>
-		</div>
-	  <div class="form-row">
-			<div class="form-group col-md-4">
 				<label><b>Ticket Created At:</b></label>
 				<input class="form-control" id="createTime" name="createTime" [(ngModel)]="createTime" disabled>
 			</div>
-			<div class="form-group col-md-4">
+			<div class="form-group col-md-3">
 				<label><b>Ticket Updated At:</b></label>
 				<input class="form-control" id="updateTime" name="updateTime" rows="1" [(ngModel)]="updateTime" disabled>
       </div>
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
 			  <label><b>Time Spent to Solve:</b></label>
 			  <input type="text" name="timeSpent" [(ngModel)]="timeSpent" class="form-control" disabled>
-			</div>
+			</div> -->
+		</div>
+	  <div class="form-row">
 			<button type="button" class="btn btn-default btns" (click)="cancel()">Cancel</button>
 		</div>
 	</form>
