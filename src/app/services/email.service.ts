@@ -12,7 +12,7 @@ export class EmailService {
             'Content-Type' : 'application/json'
         });
 
-       return this.http.post("http://formspree.io/tfh.help.me.queue@gmail.com", 
+       return this.http.post("https://formspree.io/tfh.help.me.queue@gmail.com", 
             {
                 name: name,
                 _replyto: 'no-reply@help.me.queue.com',
