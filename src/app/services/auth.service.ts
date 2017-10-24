@@ -65,7 +65,6 @@ export class AuthService {
 	}
 
 	getUser() {
-		let database = firebase.database();
 		let email = firebase.auth().currentUser.email;
 		let userInfo = [];
 		let usersRef = firebase.database().ref('users').orderByKey();
@@ -81,12 +80,24 @@ export class AuthService {
 		return this.userInfo = userInfo;
 	}
 
-	/*
+
 	
-	promoteAdmin() {
-		let userID = firebase.auth().currentUser.uid;
-		userID.update({isAdmin: true});
-	}*/
+	promoteAdmin(username) {
+		this.getUserByName(username).then(function(data){
+			console.log(data);
+			let userID = firebase.database().ref("users/" + data);
+			userID.update({isAdmin: true});
+			let isAdmin = firebase.database().ref("users/" + data + "/isAdmin");
+			isAdmin.once("value").then(function(snapshot) {
+				let x = snapshot.val();
+				if (x === true) {
+					alert("Success! " + username + " was made admin!")
+				} else {
+					alert("Attempt to make " + username + " admin failed.");
+				}
+			})
+		})
+	}
 
 	isAdmin() {
 		let that = this;
@@ -97,7 +108,7 @@ export class AuthService {
 				if (x === true) {
 					that.router.navigate(['/admin/ticket']);
 				} else {
-					alert("You are not authorized to view the admin portal.");
+					alert("Not Admin! You are not authorized to view the admin portal.");
 					that.router.navigate(['/ticket']);
 				}
 			})
@@ -123,6 +134,21 @@ export class AuthService {
 				let key = childSnapshot.key;
 				let childData = childSnapshot.val();
 				if (childData.email == email) {
+					ticketList = key;
+				}
+				})
+			return ticketList
+		}) 	
+	}
+
+	getUserByName(username: string) {
+		let ticketList;
+		let openIssuesRef = firebase.database().ref('users');
+		return openIssuesRef.once('value').then(function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				let key = childSnapshot.key;
+				let childData = childSnapshot.val();
+				if (childData.username == username) {
 					ticketList = key;
 				}
 				})
