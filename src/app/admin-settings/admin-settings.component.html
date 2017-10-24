@@ -3,29 +3,27 @@
 <div class="container">
   <h1>Settings</h1>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3 set">
       <label>Make User Admin:</label>
       <!-- <select name="studentList" id="studentList" #studentName></select> -->
       <input type="text" name="username" id="username" #username />
+      <button class="btn btn-default" (click)="makeAdmin(username.value)">Make Admin</button>
     </div>
-    <div class="col-md-2">
-      <button class="btn btn-primary" (click)="makeAdmin(username.value)">Make Admin</button>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-md-2">
+    <!--<div class="col-md-2">-->
+      
+    <!--</div>-->
+    <br>
+    <br>
+    <div class="col-md-3 set">
       <label>Add Issue Category:</label>
       <input type="text" name="categoryAdd" id="categoryAdd" #categoryAdd />
-      <button class="btn btn-primary" (click)="addCategory(categoryAdd.value)">Add Category</button>
+      <button class="btn btn-success" (click)="addCategory(categoryAdd.value)">Add Category</button>
     </div>
-    <div class="col-md-4"></div>
-    <div class="col-md-2">
+    <div class="col-md-3 set">
       <label>Delete Issue Category:</label>
       <!-- <select name="categoryList" id="categoryList" #categoryList></select> -->
       <input type="text" name="categoryDelete" id="categoryDelete" #categoryDelete />
       <button class="btn btn-danger" (click)="deleteCategory(categoryDelete.value)">Delete Category</button>
-    </div>
+</div>
   </div>
 </div>

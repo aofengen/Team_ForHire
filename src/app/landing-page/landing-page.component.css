@@ -1,12 +1,27 @@
-.container {
-    clear: both;
-	margin: auto;
-    margin-top: 180px;
+.container { 
+	clear: both;
+	margin-top: -60px;
+	height: 100vh;
 	text-align: center;
+	background-color: #78171c;
+	color: #141C23;
+	padding-bottom: 60px;
+	/* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 }
+#background-logo {
+	position: absolute;
+	height: 90vh;
+	opacity: 0.4;
+	left: 0;
+  }
+ .content {
+	margin: 0;
+	margin-top: 180px;
+} 
 .btn-primary {
-	background-color: #0B083B !important;
-	border: 1px solid #0B083B !important;
+	background-color: #212529 !important;
+	border: 1px solid #212529 !important;
+	padding: 5px;
 }
 .buttons {
 	text-align: center;
