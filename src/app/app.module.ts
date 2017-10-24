@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgsRevealModule } from 'ng-scrollreveal';
 import { NgsRevealConfig } from 'ng-scrollreveal';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -26,6 +27,8 @@ import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { HistoryDetailComponent } from './history-detail/history-detail.component';
 import { AdminhistoryDetailComponent } from './adminhistory-detail/adminhistory-detail.component';
+import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item.component';
+import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 
 import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './services/opentickets.service';
@@ -35,7 +38,7 @@ import { CreateTicketService } from './services/create-ticket.service';
 import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item.component';
+import { EmailService } from './services/email.service';
 
 @NgModule({
   imports: [
@@ -44,7 +47,8 @@ import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item
     ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    NgsRevealModule.forRoot()
+    NgsRevealModule.forRoot(), 
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -67,7 +71,8 @@ import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item
     HistoryItemComponent,
     HistoryDetailComponent,
     AdminhistoryDetailComponent,
-    AdminhistoryItemComponent
+    AdminhistoryItemComponent,
+    AdminSettingsComponent,
   ],
   providers: [
     OpenTicketService,
@@ -76,7 +81,8 @@ import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item
    //AdminGuard,
     CreateTicketService,
     HistoryService,
-    NgbActiveModal
+    NgbActiveModal,
+    EmailService
   ],
   entryComponents: [
     SignupModalComponent,
