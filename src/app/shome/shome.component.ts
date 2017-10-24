@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { OpenTickets } from '../shared/opentickets.model'
 import { OpenTicketService } from '../services/opentickets.service';
 
@@ -9,16 +10,22 @@ import { OpenTicketService } from '../services/opentickets.service';
 })
 export class SHomeComponent implements OnInit {
 tickets: OpenTickets[];
+subscription: Subscription;
 
   constructor(private ticketService: OpenTicketService) { }
 
   ngOnInit() {
-    this.tickets = this.ticketService.getOpenTickets();
-    // this.ticketService.openTicketsChanged
-    // .subscribe(
-    //   (tickets: OpenTickets[]) => {
-    //   this.tickets = tickets;
-    //   }
-    // );
+    // this.tickets = this.ticketService.getOpenTickets();
+    this.subscription = this.ticketService.openTicketsChanged
+    .subscribe(
+      (tickets: OpenTickets[]) => {
+      this.tickets = tickets;
+      }
+    );
+    this.tickets = this.ticketService.getOpenTickets()
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
