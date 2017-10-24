@@ -27,7 +27,7 @@ export class CreateTicketComponent implements OnInit {
   	const issueSolved = false;
   	const time = Date();
     this.createTicketService.createTicket(name, desc, location, category, issueSolved, time);
-    this.email.sendMail();
+    this.email.sendMail(name, desc, category);
   	this.router.navigate(['/ticket']);
   }
 

@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 export class EmailService {
   constructor(public http: Http){}
 
- public sendMail(){
+ public sendMail(name, desc, category){
         console.log("send");
         const headers = new Headers({
             'Content-Type' : 'application/json'
@@ -14,9 +14,11 @@ export class EmailService {
 
        return this.http.post("http://formspree.io/tfh.help.me.queue@gmail.com", 
             {
-                name: 'NEW SUPPORT REQUEST',
+                name: name,
                 _replyto: 'no-reply@help.me.queue.com',
-                message: "A new support request has been created!"
+                message: "A new support request has been created!",
+                description: desc,
+                category: category
             },
             {
                 'headers' : headers
