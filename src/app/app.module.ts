@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgsRevealModule } from 'ng-scrollreveal';
 import { NgsRevealConfig } from 'ng-scrollreveal';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -37,6 +38,7 @@ import { CreateTicketService } from './services/create-ticket.service';
 import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { EmailService } from './services/email.service';
 
 @NgModule({
   imports: [
@@ -45,7 +47,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    NgsRevealModule.forRoot()
+    NgsRevealModule.forRoot(), 
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -69,7 +72,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     HistoryDetailComponent,
     AdminhistoryDetailComponent,
     AdminhistoryItemComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
   ],
   providers: [
     OpenTicketService,
@@ -78,7 +81,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
    //AdminGuard,
     CreateTicketService,
     HistoryService,
-    NgbActiveModal
+    NgbActiveModal,
+    EmailService
   ],
   entryComponents: [
     SignupModalComponent,
