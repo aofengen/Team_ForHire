@@ -80,11 +80,22 @@ export class AuthService {
 		return this.userInfo = userInfo;
 	}
 
+	getAllUser() {
+		let usersArray = []
+		let usersRef = firebase.database().ref('users').orderByKey();
+		usersRef.once('value').then(function(snapshot) {
+				snapshot.forEach(function(childSnapshot) {
+		    	let key = childSnapshot.key;
+		      	let childData = childSnapshot.val();
+		      	usersArray.push(childData.name)
+				})
+			})
+				return usersArray;
+	}
 
 	
 	promoteAdmin(username) {
 		this.getUserByName(username).then(function(data){
-			console.log(data);
 			let userID = firebase.database().ref("users/" + data);
 			userID.update({isAdmin: true});
 			let isAdmin = firebase.database().ref("users/" + data + "/isAdmin");
@@ -142,17 +153,17 @@ export class AuthService {
 	}
 
 	getUserByName(username: string) {
-		let ticketList;
+		let firebaseUserId;
 		let openIssuesRef = firebase.database().ref('users');
 		return openIssuesRef.once('value').then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				let key = childSnapshot.key;
 				let childData = childSnapshot.val();
-				if (childData.username == username) {
-					ticketList = key;
+				if (childData.name == username) {
+					firebaseUserId = key;
 				}
 				})
-			return ticketList
+			return firebaseUserId
 		}) 	
 	}
 }
