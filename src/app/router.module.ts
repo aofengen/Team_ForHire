@@ -15,6 +15,7 @@ import { SupdateComponent } from './supdate/supdate.component';
 import { AdminhistoryComponent } from './adminhistory/adminhistory.component';
 import { HistoryDetailComponent } from './history-detail/history-detail.component';
 import { AdminhistoryDetailComponent } from './adminhistory-detail/adminhistory-detail.component';
+import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 
 export const routes = [
     { path: '', component: LandingPageComponent },
@@ -29,5 +30,6 @@ export const routes = [
     { path: 'admin/ticket/detail/:id', component: AdetailComponent, canActivate: [AuthGuard] },
     { path: 'admin/history', component: AdminhistoryComponent, canActivate: [AuthGuard] },
     { path: 'admin/history/:id', component: AdminhistoryDetailComponent, canActivate: [AuthGuard] },
-    { path: '**', redirectTo: '/', pathMatch: 'full'}
+    { path: 'admin/settings', component: AdminSettingsComponent, canActivate: [AuthGuard] },
+    { path: '**', redirectTo: '/'}
 ]

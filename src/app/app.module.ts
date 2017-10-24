@@ -26,6 +26,8 @@ import { AupdateItemComponent } from './aupdate-item/aupdate-item.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { HistoryDetailComponent } from './history-detail/history-detail.component';
 import { AdminhistoryDetailComponent } from './adminhistory-detail/adminhistory-detail.component';
+import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item.component';
+import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 
 import { AuthService } from './services/auth.service';
 import { OpenTicketService } from './services/opentickets.service';
@@ -35,7 +37,6 @@ import { CreateTicketService } from './services/create-ticket.service';
 import { HistoryService } from './services/history.service';
 import { routes } from './router.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item.component';
 
 @NgModule({
   imports: [
@@ -67,7 +68,8 @@ import { AdminhistoryItemComponent } from './adminhistory-item/adminhistory-item
     HistoryItemComponent,
     HistoryDetailComponent,
     AdminhistoryDetailComponent,
-    AdminhistoryItemComponent
+    AdminhistoryItemComponent,
+    AdminSettingsComponent
   ],
   providers: [
     OpenTicketService,
