@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { Router } from '@angular/router';
+import { EmailService } from '../services/email.service';
 
 @Component({
   selector: 'app-create-ticket',
@@ -12,7 +13,7 @@ export class CreateTicketComponent implements OnInit {
 
   private categories = [];
 
-  constructor(private createTicketService: CreateTicketService, private router: Router) { }
+  constructor(private createTicketService: CreateTicketService, private router: Router, private email: EmailService) { }
 
   ngOnInit() {
     this.getCategories();
@@ -25,7 +26,8 @@ export class CreateTicketComponent implements OnInit {
   	const category = form.value.category;
   	const issueSolved = false;
   	const time = Date();
-  	this.createTicketService.createTicket(name, desc, location, category, issueSolved, time);
+    this.createTicketService.createTicket(name, desc, location, category, issueSolved, time);
+    this.email.sendMail(name, desc, category);
   	this.router.navigate(['/ticket']);
   }
 
