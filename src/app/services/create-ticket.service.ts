@@ -22,7 +22,8 @@ export class CreateTicketService {
 			id: firebase.auth().currentUser.uid
 		}
 		let newTicketKey = firebase.database().ref().child('openIssues').push().key;
-		return firebase.database().ref('openIssues/' + newTicketKey).set(newTicket);
+		firebase.database().ref('openIssues/' + newTicketKey).set(newTicket);
+		this.openTicketService.getOpenTickets();
 	}
 
 	getCategories(){
