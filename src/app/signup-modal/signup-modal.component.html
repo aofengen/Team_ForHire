@@ -5,6 +5,8 @@
 		<h4 class="modal-title">Sign Up</h4>
 	</div>
 	<form (ngSubmit)="onSignup(f)" #f="ngForm" class="modal-body">
+	<!-->NGForm takes all inputs with the ngModel attribute and bundles them together
+		into the ngForm object, which is then passed to the TS file <-->
 		<div class="form-group">
 			<label>Name:</label>
 			<input 
