@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 userInfo: Users[];
-
-title = 'HELP!!!'
   
   constructor(private authService: AuthService) { }
 
