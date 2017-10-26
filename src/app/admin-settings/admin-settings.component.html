@@ -13,13 +13,13 @@
         required>
           <option *ngFor="let user of usernames" ng-selected="true" value="{{user}}">{{user}}</option>
         </select>
+        <br>  
       <button class="btn btn-default" (click)="makeAdmin(username.value)">Make Admin</button>
     </div>
-    <br>
-    <br>
     <div class="col-md-3 set">
       <label>Add Issue Category:</label>
-      <input type="text" name="categoryAdd" id="categoryAdd" #categoryAdd />
+      <input class="form-control" type="text" name="categoryAdd" id="categoryAdd" #categoryAdd />
+      <br>
       <button class="btn btn-success" (click)="addCategory(categoryAdd.value)">Add Category</button>
     </div>
     <div class="col-md-3 set">
@@ -32,6 +32,7 @@
         required>
           <option *ngFor="let categoryDelete of categories" ng-selected="true" value="{{categoryDelete}}">{{categoryDelete}}</option>
         </select>
+        <br>
       <button class="btn btn-danger" (click)="deleteCategory(categoryDelete.value)">Delete Category</button>
     </div>
   </div>

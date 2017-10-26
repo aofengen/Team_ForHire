@@ -26,12 +26,14 @@ export class AuthService {
 			)
 			 let newUser = {
 				email: email,
-				  name: name,
-				  username: username,
-				  isAdmin: false
-			  }
+				name: name,
+				username: username,
+				isAdmin: false
+			  } //sets values that will be entered into database
 			let newUserKey = firebase.database().ref().child('users').push().key;
+			//creates random, non-sensical key value for database
 			firebase.database().ref('users/' + newUserKey).set(newUser);
+			//inserts items in newUser into newUserKey location in users object in db
 			this.router.navigate(['/ticket']);	
   		})
 	.catch(error => console.log(error))
