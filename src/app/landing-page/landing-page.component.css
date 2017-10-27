@@ -43,12 +43,14 @@ a {
 }
 .smallSpace {
 	height: 100px;
+	background-color: #78171c;
 }
 .space {
 	height: 250px;
 }
 .videoHolder {
 	height: 100%;
+	background-color: #78171c;
 }
 .video {
 	text-align: center;
