@@ -15,14 +15,13 @@ subscription: Subscription;
   constructor(private ticketService: OpenTicketService) { }
 
   ngOnInit() {
-    // this.tickets = this.ticketService.getOpenTickets();
+    this.tickets = this.ticketService.getOpenTickets()
     this.subscription = this.ticketService.openTicketsChanged
     .subscribe(
       (tickets: OpenTickets[]) => {
-      this.tickets = tickets;
+        this.tickets = tickets;
       }
     );
-    this.tickets = this.ticketService.getOpenTickets()
   }
 
   ngOnDestroy() {
