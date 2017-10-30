@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 export class EmailService {
   constructor(public http: Http){}
 
- public sendMail(name, desc, category){
+ public sendMail(type, name, desc, category){
         console.log("send");
         const headers = new Headers({
             'Content-Type' : 'application/json'
@@ -16,7 +16,7 @@ export class EmailService {
             {
                 name: name,
                 _replyto: 'no-reply@help.me.queue.com',
-                message: "A new support request has been created!",
+                message: "A support request has been " + type,
                 description: desc,
                 category: category
             },

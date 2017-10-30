@@ -4,7 +4,8 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CreateTicketService } from '../services/create-ticket.service';
 import { OpenTickets } from '../shared/opentickets.model';
-import { OpenTicketService } from '../services/opentickets.service'
+import { OpenTicketService } from '../services/opentickets.service';
+import { EmailService } from '../services/email.service';
 
 @Component({
   selector: 'app-aupdate',
@@ -27,7 +28,8 @@ export class AupdateComponent implements OnInit {
   constructor(private router: Router,
   						private route: ActivatedRoute,
 						private ticketService: OpenTicketService,
-						private createTicketService: CreateTicketService
+						private createTicketService: CreateTicketService,
+						private email: EmailService
   						) {}
 
   ngOnInit() {
@@ -53,7 +55,7 @@ export class AupdateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-		let thisComponent = this;
+		let that = this;
 		let close = confirm("Issue Solved?\nOk - update and close ticket.\nCancel - update and leave open.");
 		if (close == true) {
 			let solvedBy = prompt("Who solved the issue?");
@@ -74,21 +76,23 @@ export class AupdateComponent implements OnInit {
 				this.ticketService.getPostID("openIssues", this.index).then(function(data) {
 					firebase.database().ref('history/' + data).set(completedTicket);
 					firebase.database().ref('openIssues/' + data).remove();
-					thisComponent.router.navigate(['/admin/ticket']);
+					that.email.sendMail("closed.", that.studentName, that.desc, that.category);
+					that.router.navigate(['/admin/ticket']);
 				})
 			}
-			} else {
-				let updateTicket = {
-					studentName: this.studentName,
-					desc: this.desc,
-					location: this.location,
-					suggestedSolution: form.value.suggestedSolution,
-					updateTime: Date()
-			}
-		this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-			firebase.database().ref('openIssues/' + data).update(updateTicket);
-			thisComponent.router.navigate(['/admin/ticket']);
-		})
+		} else {
+			let updateTicket = {
+				studentName: this.studentName, 
+				desc: this.desc,
+				location: this.location,
+				suggestedSolution: form.value.suggestedSolution,
+				updateTime: Date()
+		}
+			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+				firebase.database().ref('openIssues/' + data).update(updateTicket);
+				that.email.sendMail("updated.", that.studentName, that.desc, that.category);
+				that.router.navigate(['/admin/ticket']);
+			})
 		}
 	}
 
@@ -97,10 +101,16 @@ export class AupdateComponent implements OnInit {
   }
 
   delete() {
-		let thisComponent = this;
-	this.ticketService.getPostID("openIssues", this.index).then(function(data) {
-		firebase.database().ref('openIssues/' + data).remove();
-		thisComponent.router.navigate(['admin/ticket']);
-	})	
+		let that = this;
+		let deleted = confirm("Are you sure you want to delete this ticket?");
+		if (deleted === true) {
+			this.ticketService.getPostID("openIssues", this.index).then(function(data) {
+				firebase.database().ref('openIssues/' + data).remove();
+				that.email.sendMail("deleted.", that.studentName, that.desc, that.category);
+				that.router.navigate(['admin/ticket']);
+			})
+		}	else {
+			this.router.navigate(['/admin/ticket']);
+		}
   }
 }
