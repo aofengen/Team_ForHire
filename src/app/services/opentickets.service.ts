@@ -5,23 +5,22 @@ import { EventEmitter } from '@angular/core';
 export class OpenTicketService {
 	openTicketsChanged = new EventEmitter<OpenTickets[]>();
 	private tickets: OpenTickets[] = [];
-	private ticketList = [];
+	private ticketRef = [];
 
 	constructor() {
 	 }
 
 	getOpenTickets() {
+		let ticketRef = []
 		let tickets = []
 		let database = firebase.database();
-		let openIssuesRef = database.ref('openIssues').orderByKey();
-		openIssuesRef.once('value').then(function(snapshot) {
-	    	snapshot.forEach(function(childSnapshot) {
-				let key = childSnapshot.key;
-				let childData = childSnapshot.val();
-				tickets.push(childData);
-	    	});
-		});	
-		return this.tickets = tickets;
+		let openIssuesRef = database.ref('openIssues');
+		openIssuesRef.on('child_added', function(snapshot) {
+			tickets.push(snapshot.val());
+		})
+		this.tickets = tickets;
+		this.openTicketsChanged.next(this.tickets.slice());
+		return this.tickets = tickets	
 	}
 
 	getOpenTicket(x: number) {
