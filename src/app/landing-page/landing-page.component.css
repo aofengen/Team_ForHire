@@ -48,6 +48,7 @@ br {
 }
 .space {
 	height: 250px;
+	z-index: -1;
 }
 .videoHolder {
 	height: 100%;
