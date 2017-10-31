@@ -48,7 +48,12 @@ br {
 }
 .space {
 	height: 250px;
+	width: 100vw;
 	z-index: -1;
+	background-color: #78171c;
+	margin: -25px !important;
+	margin-right: -50px;
+	padding: 0 !important;
 }
 .videoHolder {
 	height: 100%;
