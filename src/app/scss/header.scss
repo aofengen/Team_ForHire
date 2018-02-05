@@ -1,0 +1,42 @@
+.bar {
+	background-color: #78171c;
+	background-size: cover;
+	margin-top: -60px;
+
+	.navigation {
+		float: right;
+		clear: left;
+		padding-right: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+.navigation {
+	margin: 0 38px;
+
+	a {
+		padding: 5x 10x;
+		text-decoration: none;
+		margin-top: 10px;
+		display: inline-block;
+		background-color: #eee;
+		border-radius: 4px;
+	}
+
+	a:visited, a:link {
+		color: #607DBD;
+	}
+
+	a:hover {
+		color: #039be5;
+  	background-color: #CFD8DC;
+	}
+
+	a.active {
+		color: #039be5;
+	}
+}
+
+.clear {
+	clear: both;
+}

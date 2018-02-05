@@ -1,0 +1,41 @@
+h1 {
+  display: inline-block;
+}
+h2 {
+  margin-left: 50px;
+}
+.bar {
+  background-color: #78171c;
+  background-size: cover;
+  margin-top: -60px;
+}
+.bar .navigation {
+  float: right;
+  clear: left;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.navigation {
+  margin: 0 38px;
+}
+.navigation a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.navigation a:visited, a:link {
+  color: #607D8B;
+}
+.navigation a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+.navigation a.active {
+  color: #039be5;
+}
+.clear {
+  clear: both;
+}

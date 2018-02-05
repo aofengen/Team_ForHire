@@ -1,0 +1,19 @@
+@import 'mixins';
+
+$btnDefault: #414950;
+$btnSuccess: #9F363B;
+$btnDanger: #520307;
+
+.btn-default {
+    @include buttonColor($btnDefault);
+    color: #fff !important;
+}
+.btn-success {
+		@include buttonColor($btnSuccess);
+}
+.btn-danger {
+		@include buttonColor($btnDanger);
+}
+.btns {
+	margin: 5px;
+}

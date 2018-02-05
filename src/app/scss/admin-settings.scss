@@ -1,0 +1,42 @@
+@import 'mixins';
+
+$btnDefault: #414950;
+$btnSuccess: #9F363B;
+$btnDanger: #520307;
+
+%disabledBtns {
+    border: 1px solid red;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+.container {
+    clear: both;
+    margin-top: 100px;
+}
+.set {
+    margin: 10px;
+}
+.btn-default {
+    @include buttonColor($btnDefault);
+    color: #fff !important;
+}
+.btn-success {
+    @include buttonColor($btnSuccess);
+}
+.btn-danger {
+    @include buttonColor($btnDanger);
+}
+input.ng-invalid.ng-touched {
+	@extend %disabledBtns;
+}
+textarea.ng-invalid.ng-touched {
+    @extend %disabledBtns;
+}
+select.ng-invalid.ng-touched {
+	@extend %disabledBtns;
+}
+.btn[disabled] {
+	cursor: not-allowed;
+}

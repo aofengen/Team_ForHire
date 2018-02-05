@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMA,YAAa;ECLZ,gBAAgB,EAAE,kBAAiB;EACnC,MAAM,EAAE,4BAA2B;EDMhC,KAAK,EAAE,eAAe;;AAE1B,YAAa;ECTZ,gBAAgB,EAAE,kBAAiB;EACnC,MAAM,EAAE,4BAA2B;;ADWpC,WAAY;ECZX,gBAAgB,EAAE,kBAAiB;EACnC,MAAM,EAAE,4BAA2B;;ADcpC,KAAM;EACL,MAAM,EAAE,GAAG",
+"sources": ["../scss/supdate.scss","../scss/_mixins.scss"],
+"names": [],
+"file": "supdate2.component.css"
+}

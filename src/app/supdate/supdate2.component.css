@@ -1,0 +1,18 @@
+.btn-default {
+  background-color: #414950 !important;
+  border: 1px solid #414950 !important;
+  color: #fff !important; }
+
+.btn-success {
+  background-color: #9F363B !important;
+  border: 1px solid #9F363B !important; }
+
+.btn-danger {
+  background-color: #520307 !important;
+  border: 1px solid #520307 !important; }
+
+.btns {
+  margin: 5px; }
+
+/*# sourceMappingURL=supdate2.component.css.map */
+/*Created using Sass and mixins*/

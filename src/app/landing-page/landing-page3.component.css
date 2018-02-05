@@ -1,0 +1,90 @@
+h1 {
+  font-family: 'Josefin Sans', sans-serif; }
+
+br {
+  background-color: #78171c; }
+
+.container {
+  clear: both;
+  margin-top: -60px;
+  height: 100vh;
+  text-align: center;
+  background-color: #78171c;
+  color: #141C23;
+  padding-bottom: 60px;
+  /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */ }
+
+#background-logo {
+  position: absolute;
+  height: 90vh;
+  opacity: 0.4;
+  left: 0; }
+
+.content {
+  margin: 0;
+  margin-top: 180px; }
+
+.btn-primary {
+  background-color: #212529 !important;
+  border: 1px solid #212529 !important;
+  padding: 5px; }
+
+.buttons {
+  text-align: center;
+  margin: auto; }
+
+.in {
+  padding: 5px;
+  width: 75px; }
+
+.up {
+  padding: 5px;
+  width: 75px; }
+
+.smallSpace {
+  height: 100px;
+  background-color: #78171c;
+  z-index: -1; }
+
+.space {
+  height: 250px;
+  width: 100vw;
+  z-index: -1;
+  background-color: #78171c;
+  margin: -25px !important;
+  margin-right: -50px;
+  padding: 0 !important; }
+
+.videoHolder {
+  height: 100%;
+  background-color: #78171c; }
+
+.video {
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+  height: 100%;
+  width: 85%; }
+
+iframe {
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: 75%;
+  width: 85%; }
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  iframe {
+    width: 560px;
+    height: 315x; } }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  iframe {
+    width: 750px;
+    height: 470px; } }
+@media screen and (min-width: 1024px) {
+  iframe {
+    width: 1010px;
+    height: 630px; } }
+
+/*# sourceMappingURL=landing-page3.component.css.map */
+/*Created with Sass importing variables*/

@@ -1,0 +1,31 @@
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+  border: 1px solid red; }
+
+h1 {
+  margin-bottom: 15px; }
+
+.container {
+  clear: both;
+  margin-top: 100px; }
+
+.set {
+  margin: 10px; }
+
+.btn-default {
+  background-color: #414950 !important;
+  border: 1px solid #414950 !important;
+  color: #fff !important; }
+
+.btn-success {
+  background-color: #9F363B !important;
+  border: 1px solid #9F363B !important; }
+
+.btn-danger {
+  background-color: #520307 !important;
+  border: 1px solid #520307 !important; }
+
+.btn[disabled] {
+  cursor: not-allowed; }
+
+/*# sourceMappingURL=admin-settings2.component.css.map */
+/*Created with Sass using mixins and extend*/

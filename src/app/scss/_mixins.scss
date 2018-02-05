@@ -1,0 +1,4 @@
+@mixin buttonColor($color) {
+	background-color: $color !important;
+	border: 1px solid $color !important;
+}
